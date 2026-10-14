@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { siteUrl } from './site-url.js';
-import { ArrowRight, ArrowUpRight, Github, Menu, Sparkles, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Code2, Github, Menu, X } from 'lucide-react';
 
 const REPOSITORY = 'https://github.com/animevaultofficial/Nexora-Code';
 const RELEASES = `${REPOSITORY}/releases`;
@@ -10,9 +10,9 @@ export default function SiteHeader({ currentPage }) {
   const closeMenu = () => setMenuOpen(false);
   return <>
     <div className="announcement">
-      <span className="announcement-mark"><Sparkles size={13}/></span>
-      <span>A closer look at the tools inside Nexora Code.</span>
-      <a href={siteUrl('features/')}>Explore Nexora <ArrowRight size={13}/></a>
+      <span className="announcement-mark"><Code2 size={13}/></span>
+      <span>Nexora Code for Windows.</span>
+      <a href={siteUrl('features/')}>Explore features <ArrowRight size={13}/></a>
     </div>
     <header className="site-header">
       <nav className="nav container" aria-label="Main navigation">
