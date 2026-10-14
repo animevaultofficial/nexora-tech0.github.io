@@ -20,7 +20,7 @@ export default function EfithPage() {
     <main>
       <section className="efith-page-hero container">
         <div className="eyebrow efith-brand-lockup"><img src={siteUrl('nexora-mark.svg')} alt=""/> NEXORA CODE / EFITH AI</div>
-        <h1>Meet EFITH.<br/><span>Your coding agent, in context.</span></h1>
+        <h1>EFITH coding agent</h1>
         <p>EFITH is Nexora Code's AI coding agent. Ask questions about a project, explore workspace files with tools, and review proposed edits before they are applied. Choose the provider, model, and permission level that fit the task.</p>
         <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all IDE features <ArrowRight size={14}/></a><a className="button-secondary" href={REPOSITORY} target="_blank" rel="noreferrer">View Nexora Code source <ArrowUpRight size={14}/></a></div>
       </section>
@@ -29,7 +29,7 @@ export default function EfithPage() {
         <div className="container efith-workflow-layout">
           <div className="efith-workflow-copy">
             <span className="efith-page-kicker"><Sparkles size={14}/> CHAT + AGENT WORKFLOWS</span>
-            <h2>Go from a question<br/>to a <span>reviewed change.</span></h2>
+            <h2>Ask questions. Review changes.</h2>
             <p>EFITH can explain code in the current project or use tools to investigate and make a proposed change. You decide what gets applied and how much access the agent receives.</p>
             <ul className="efith-page-points">
               <li><Check size={15}/> Ask questions and keep conversations with workspace-scoped history.</li>
@@ -47,7 +47,7 @@ export default function EfithPage() {
 
       <section className="efith-capabilities-section container">
         <div className="feature-guide-heading">
-          <div><div className="eyebrow"><span/> HOW EFITH WORKS</div><h2>Useful tools.<br/><span>Visible decisions.</span></h2></div>
+          <div><div className="eyebrow"><span/> HOW EFITH WORKS</div><h2>Tools and permissions</h2></div>
           <p>EFITH connects an AI conversation to a small set of explicit workspace actions. File changes are presented for review instead of being silently written behind your back.</p>
         </div>
         <div className="efith-capability-grid">
@@ -61,7 +61,7 @@ export default function EfithPage() {
       <section className="efith-permissions-section">
         <div className="container">
           <div className="feature-guide-heading">
-            <div><div className="eyebrow"><span/> YOU SET THE ACCESS</div><h2>Three permission modes.<br/><span>One clear boundary.</span></h2></div>
+            <div><div className="eyebrow"><span/> YOU SET THE ACCESS</div><h2>Choose the level of access.</h2></div>
             <p>The mode is visible in the EFITH panel and settings. Full access is intentionally explicit because it can reach outside the open project.</p>
           </div>
           <div className="efith-permission-grid">
@@ -74,7 +74,7 @@ export default function EfithPage() {
 
       <section className="efith-providers-section container">
         <div className="feature-guide-heading">
-          <div><div className="eyebrow"><span/> PROVIDER + MODEL CHOICE</div><h2>Choose your AI.<br/><span>Keep the configuration yours.</span></h2></div>
+          <div><div className="eyebrow"><span/> PROVIDER + MODEL CHOICE</div><h2>Providers and models</h2></div>
           <p>EFITH supports hosted providers, a local Ollama-compatible endpoint, and custom OpenAI-compatible APIs. Model lists can be fetched from the configured provider; availability and credentials depend on your account.</p>
         </div>
         <div className="efith-provider-grid">{aiProviders.map(provider => <article className="efith-provider-card" key={provider.id}>
@@ -95,7 +95,7 @@ export default function EfithPage() {
       </section>
 
       <section className="efith-page-cta container">
-        <div><span className="eyebrow"><span/> PART OF NEXORA CODE</span><h2>See EFITH alongside<br/><span>the rest of your tools.</span></h2></div>
+        <div><span className="eyebrow"><span/> PART OF NEXORA CODE</span><h2>EFITH is part of Nexora Code.</h2></div>
         <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all features <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('tech-stack/')}>Explore language support <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
