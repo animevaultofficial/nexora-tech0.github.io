@@ -1,27 +1,25 @@
-# Nexora Code Website
+# Nexora Code website
 
-A React + Vite landing page for Nexora Code, designed for the `nexora-tech0/nexora.github.io` GitHub Pages repository.
+Official website for Nexora Code, the Windows desktop IDE developed under the Nexora brand.
 
-## Run locally
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+## Production build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## GitHub Pages
+Vite writes the production site to `dist/`. The repository is configured as the account's GitHub Pages site at `https://nexora-tech0.github.io/`, so the production base path is `/`.
 
-The included `.github/workflows/deploy.yml` builds and deploys the Vite site when changes are pushed to `main`. In GitHub, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
+## Deployment
 
-## Connect the real installer
+`.github/workflows/deploy.yml` builds `dist/` and deploys it using the GitHub Pages artifact workflow. The repository's Pages publishing source must be set to **GitHub Actions**.
 
-In `src/App.jsx`, replace the empty `DOWNLOAD_URL` constant with the URL of the actual Windows installer attached to the Nexora Code GitHub Release. Until then, the download CTA links to the Releases page and deliberately does not pretend an installer is already published.
-
-The site is configured for a root-domain GitHub Pages repository (`nexora-tech0.github.io`), so Vite's base path is `/`.
+The download links point to the official Nexora Code releases page. The site indicates when no public installer is listed rather than linking to an unpublished file.

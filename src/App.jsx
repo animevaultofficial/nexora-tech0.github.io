@@ -1,40 +1,380 @@
 import { useState } from 'react';
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Braces, Check, ChevronDown, Command, Cpu, GitBranch, Github, Menu, Monitor, Play, Sparkles, Terminal, X, Zap } from 'lucide-react';
+import {
+  ArrowDownToLine,
+  ArrowRight,
+  ArrowUpRight,
+  Bot,
+  Braces,
+  Check,
+  ChevronDown,
+  Command,
+  ExternalLink,
+  FileCode2,
+  FolderOpen,
+  GitBranch,
+  Github,
+  Menu,
+  Monitor,
+  PanelRight,
+  Play,
+  ShieldCheck,
+  Sparkles,
+  Terminal,
+  X,
+} from 'lucide-react';
 
-const GITHUB = 'https://github.com/nexora-tech0';
-// Replace this with the URL of the published Windows installer when the first release is live.
-const DOWNLOAD_URL = '';
+const REPOSITORY = 'https://github.com/animevaultofficial/Nexora-Code';
+const RELEASES = `${REPOSITORY}/releases`;
+const ORGANIZATION = 'https://github.com/nexora-tech0';
 
-function Brand({ small = false }) {
-  return <a className={`brand ${small ? 'brand-small' : ''}`} href="#top" aria-label="Nexora Code home"><span className="brand-mark">N</span><span>NEXORA<span className="brand-light"> CODE</span></span></a>;
+const projectFiles = [
+  { name: 'src', kind: 'folder' },
+  { name: 'App.jsx', kind: 'react' },
+  { name: 'styles.css', kind: 'style' },
+  { name: 'package.json', kind: 'json' },
+  { name: 'README.md', kind: 'markdown' },
+];
+
+const featureCards = [
+  {
+    icon: Braces,
+    title: 'A capable code editor',
+    description: 'Edit project files in a Monaco-powered editor with syntax highlighting, language-aware tools, and customizable themes.',
+    detail: 'MONACO EDITOR',
+  },
+  {
+    icon: FolderOpen,
+    title: 'Your project, in view',
+    description: 'Open a workspace, browse its files, and keep the Explorer in sync as files change.',
+    detail: 'WORKSPACE EXPLORER',
+  },
+  {
+    icon: Terminal,
+    title: 'Terminal beside your code',
+    description: 'Run shell commands in an integrated terminal without leaving the project you are working on.',
+    detail: 'INTEGRATED TERMINAL',
+  },
+  {
+    icon: GitBranch,
+    title: 'Git in the workflow',
+    description: 'Review repository changes and use GitHub-connected tools from the same desktop workspace.',
+    detail: 'SOURCE CONTROL',
+  },
+  {
+    icon: Bot,
+    title: 'EFITH, with controls',
+    description: 'Ask questions about your work, review proposed file edits, and choose how much access the agent gets.',
+    detail: 'AI CODING AGENT',
+  },
+];
+
+function Brand({ footer = false }) {
+  return (
+    <a className={`brand${footer ? ' brand-footer' : ''}`} href="#top" aria-label="Nexora Code home">
+      <img src="/nexora-mark.svg" width="34" height="34" alt="" />
+      <span>NEXORA <span className="brand-muted">CODE</span></span>
+    </a>
+  );
 }
-function WindowPreview() {
-  const [tab, setTab] = useState('App.jsx');
-  const files = ['App.jsx', 'styles.css', 'main.jsx'];
-  return <div className="ide-window" aria-label="Interactive preview of the Nexora Code interface">
-    <div className="window-titlebar"><div className="traffic"><i/><i/><i/></div><div className="window-caption"><span className="tiny-n">N</span> nexora-code <span className="caption-muted">— workspace</span></div><div className="title-actions"><span/><span/><span/></div></div>
-    <div className="ide-body"><aside className="activity"><div className="activity-logo">N</div><Braces/><GitBranch/><SearchIcon/><Terminal/><div className="activity-bottom"><Command/></div></aside>
-      <aside className="explorer"><div className="explorer-head">EXPLORER <ChevronDown size={12}/></div><div className="folder-label">⌄ &nbsp; NEXORA-APP</div>{files.map((f,i)=><button key={f} className={`file-row ${tab===f?'selected':''}`} onClick={()=>setTab(f)}><span className={`file-icon file-${i}`}>{['◈','◌','◉'][i]}</span>{f}</button>)}<div className="explorer-bottom"><span className="status-dot"/> main <span className="sync">↻</span></div></aside>
-      <section className="editor-area"><div className="editor-tabs">{files.slice(0,2).map((f)=><button key={f} onClick={()=>setTab(f)} className={tab===f?'active':''}><span className="tab-symbol">{f.endsWith('css')?'#':'◈'}</span>{f}<X size={11}/></button>)}</div><div className="breadcrumb">src <span>/</span> {tab}</div><div className="code-area"><div className="line-numbers">{Array.from({length:14},(_,i)=><span key={i}>{i+1}</span>)}</div>{tab==='styles.css'?<pre><code><span className="code-purple">.workspace</span> {'{'}<br/>  <span className="code-blue">display</span>: flex;<br/>  <span className="code-blue">min-height</span>: 100vh;<br/>  <span className="code-blue">background</span>: <span className="code-green">#09090b</span>;<br/>{'}'}<br/><br/><span className="code-purple">.build-something</span> {'{'}<br/>  <span className="code-blue">color</span>: <span className="code-green">#f5f5f7</span>;<br/>  <span className="code-blue">letter-spacing</span>: <span className="code-orange">-0.04em</span>;<br/>{'}'}<br/><br/><span className="code-comment">/* made for your flow */</span></code></pre>:<pre><code><span className="code-purple">import</span> {'{'} useState {'}'} <span className="code-purple">from</span> <span className="code-green">'react'</span>;<br/><br/><span className="code-purple">export default function</span> <span className="code-yellow">App</span>() {'{'}<br/>  <span className="code-purple">const</span> [focus, setFocus] =<br/>    <span className="code-blue">useState</span>(<span className="code-green">'building'</span>);<br/><br/>  <span className="code-purple">return</span> (<br/>    <span className="code-red">&lt;main</span> <span className="code-blue">className</span>=<span className="code-green">"workspace"</span><span className="code-red">&gt;</span><br/>      <span className="code-red">&lt;h1&gt;</span>Build something great<br/>      <span className="code-red">&lt;/h1&gt;</span><br/>      <span className="code-comment">{'{/* your next idea starts here */}'}</span><br/>    <span className="code-red">&lt;/main&gt;</span><br/>  );<br/>{'}'}</code></pre>}</div><div className="editor-cursor"><span/> Ready when you are.</div></section>
-      <aside className="ai-panel"><div className="ai-panel-head"><span className="ai-spark"><Sparkles size={13}/></span> EFITH <span className="online-dot"/></div><div className="ai-greeting"><span className="ai-orb"><Sparkles size={18}/></span><strong>What are we building?</strong><p>I'm here to help you think, code, and ship.</p></div><div className="suggestion">Explain this file <ArrowUpRight size={12}/></div><div className="suggestion">Find a bug <ArrowUpRight size={12}/></div><div className="ai-input">Ask EFITH anything… <span>↑</span></div><div className="ai-foot">AI CAN MAKE MISTAKES</div></aside></div>
-    <div className="window-status"><span><GitBranch size={11}/> main</span><span>0 errors <span className="status-sep">·</span> 0 warnings</span><span className="status-right">UTF-8 &nbsp; Spaces: 2</span></div>
-  </div>;
+
+function CodeLine({ number, children }) {
+  return <div className="code-line"><span className="line-number">{number}</span><code>{children}</code></div>;
 }
-function SearchIcon(){return <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.2 4.2"/></svg>}
-function FeatureCard({icon:Icon,number,title,desc,tag}) {return <article className="feature-card"><div className="feature-top"><span className="feature-icon"><Icon size={19}/></span><span className="feature-number">{number}</span></div><h3>{title}</h3><p>{desc}</p><span className="feature-tag">{tag}</span></article>}
-function App(){
-  const [menuOpen,setMenuOpen]=useState(false);
-  const download=()=>{ if(DOWNLOAD_URL){window.location.href=DOWNLOAD_URL;}else{document.getElementById('download')?.scrollIntoView({behavior:'smooth'});} };
-  return <div id="top" className="site-shell">
-    <div className="announcement"><span className="announcement-pip"/> <span>Meet your new development workspace.</span> <a href="#features">Take a look <ArrowRight size={12}/></a></div>
-    <header className="nav-wrap"><nav className="nav container"><Brand/><div className={`nav-links ${menuOpen?'nav-open':''}`}><a href="#features" onClick={()=>setMenuOpen(false)}>Features</a><a href="#efith" onClick={()=>setMenuOpen(false)}>AI workspace</a><a href="#about" onClick={()=>setMenuOpen(false)}>Our philosophy</a><a className="nav-github" href={`${GITHUB}/Nexora-Code`} target="_blank" rel="noreferrer"><Github size={15}/> GitHub <ArrowUpRight size={12}/></a></div><button className="mobile-menu" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen?<X/>:<Menu/>}</button><button className="nav-download" onClick={download}>Get Nexora <ArrowUpRight size={14}/></button></nav></header>
-    <main><section className="hero container"><div className="hero-copy"><div className="eyebrow"><span className="eyebrow-line"/> THE WORKSPACE, REIMAGINED</div><h1>Less friction.<br/><span>More flow.</span></h1><p className="hero-description">Meet Nexora Code — a desktop development environment designed to bring your editor, terminal, Git workflow, and AI tools into one focused place.</p><div className="hero-actions"><button className="button-primary" onClick={download}><Monitor size={16}/>{DOWNLOAD_URL?'Download for Windows':'Explore the download'}<ArrowDownRight size={15}/></button><a className="button-quiet" href="#features">Explore the workspace <ArrowRight size={15}/></a></div><div className="hero-proof"><div className="avatar-stack"><span>N</span><span>⌘</span><span>✳</span></div><div><strong>Made for the way you build.</strong><small>One workspace. Your tools. Your flow.</small></div></div></div><div className="hero-visual"><div className="visual-glow"/><div className="visual-label label-top"><span className="live-dot"/> YOUR WORKSPACE <span>01 / 04</span></div><WindowPreview/><div className="floating-note"><span className="note-icon"><Zap size={14}/></span><div><strong>Stay in the flow</strong><small>Everything within reach.</small></div><span className="note-check"><Check size={12}/></span></div><div className="visual-label label-bottom"><span>FIG. 01</span> NEXORA CODE INTERFACE <span className="label-rule"/></div></div><div className="hero-index">NXR<span> / </span>001</div></section>
-    <section className="ticker" aria-label="Included tools"><div className="ticker-track">{['CODE WITH INTENTION','BUILT FOR FOCUS','YOUR TERMINAL, IN CONTEXT','AI WHEN YOU NEED IT','GIT WITHOUT THE DETOUR','CODE WITH INTENTION','BUILT FOR FOCUS','YOUR TERMINAL, IN CONTEXT','AI WHEN YOU NEED IT','GIT WITHOUT THE DETOUR'].map((x,i)=><span key={i}>{x}<i>✳</i></span>)}</div></section>
-    <section id="features" className="features-section container section-pad"><div className="section-heading"><div><div className="eyebrow"><span className="eyebrow-line"/> A BETTER KIND OF IDE</div><h2>Everything in its place.<br/><span>Nothing in your way.</span></h2></div><p>Good tools don't demand your attention. They give it back. Nexora Code is being built around that simple idea.</p></div><div className="feature-grid"><FeatureCard icon={Braces} number="01" title="A focused editor" desc="A familiar, capable coding space for the files and languages you work with every day." tag="WRITE · NAVIGATE · CREATE"/><FeatureCard icon={Terminal} number="02" title="Terminal, built in" desc="Run commands beside your code. Keep your feedback loop short and your context intact." tag="RUN RIGHT HERE"/><FeatureCard icon={GitBranch} number="03" title="Git in your flow" desc="Keep an eye on changes, commit your work, and manage source control without leaving your workspace." tag="TRACK EVERY CHANGE"/><FeatureCard icon={Sparkles} number="04" title="AI with context" desc="EFITH and AI-assisted workflows are designed to sit alongside your work—not take over your screen." tag="A SECOND SET OF BRAINS"/></div></section>
-    <section id="efith" className="ai-section"><div className="container ai-layout"><div className="ai-copy"><div className="eyebrow"><span className="eyebrow-line"/> A THOUGHTFUL AI WORKSPACE</div><h2>Your ideas first.<br/><span>AI in your corner.</span></h2><p>Meet EFITH, Nexora Code's AI agent experience. Get help thinking through a problem, understanding code, or finding a way forward—while keeping your editor at the center.</p><ul className="ai-points"><li><span><Check size={13}/></span> An assistant beside your work</li><li><span><Check size={13}/></span> Built around your development flow</li><li><span><Check size={13}/></span> Designed to help, not distract</li></ul><a className="text-link" href="#download">See the Nexora vision <ArrowRight size={15}/></a></div><div className="ai-visual"><div className="ai-orbit orbit-one"/><div className="ai-orbit orbit-two"/><div className="ai-core"><div className="core-inner"><Sparkles size={28}/></div></div><div className="orbit-label orbit-label-one"><span className="orbit-mini"><Braces size={13}/></span><div><b>Your code</b><small>Context stays close</small></div></div><div className="orbit-label orbit-label-two"><span className="orbit-mini pink-mini"><Sparkles size={13}/></span><div><b>EFITH</b><small>Ideas to next steps</small></div></div><div className="orbit-label orbit-label-three"><span className="orbit-mini"><Terminal size={13}/></span><div><b>Your workflow</b><small>One connected space</small></div></div><div className="ai-visual-caption">A LITTLE MORE CLARITY. A LOT MORE MOMENTUM.</div></div></div></section>
-    <section id="about" className="manifesto container"><div className="manifesto-number">N / 002</div><div className="manifesto-content"><div className="eyebrow"><span className="eyebrow-line"/> THE NEXORA PHILOSOPHY</div><h2>Software should feel<br/>like <span>momentum.</span></h2><p>Not a maze of panels. Not a hundred little interruptions. Just a thoughtful environment that gets out of the way and lets you make something real.</p><div className="manifesto-signature"><span className="signature-mark">N</span><span><strong>Nexora Code</strong><small>Built for what's next.</small></span></div></div><div className="manifesto-side"><div className="manifesto-symbol">N<span>.</span></div><p>THE NEXT IDEA<br/>IS YOURS TO BUILD.</p></div></section>
-    <section id="download" className="download-section"><div className="container download-inner"><div className="download-decoration">N<span>.</span></div><div className="eyebrow"><span className="eyebrow-line"/> YOUR NEXT WORKSPACE</div><h2>Ready when<br/><span>you are.</span></h2><p>Bring your tools together and make room for the work that matters.</p><div className="download-actions">{DOWNLOAD_URL?<a className="button-primary" href={DOWNLOAD_URL}><Monitor size={16}/> Download for Windows <ArrowDownRight size={15}/></a>:<a className="button-primary" href={`${GITHUB}/Nexora-Code/releases`} target="_blank" rel="noreferrer"><Github size={16}/>View Windows releases<ArrowUpRight size={15}/></a>}<a className="button-quiet" href={`${GITHUB}/Nexora-Code/releases`} target="_blank" rel="noreferrer">View releases <ArrowRight size={15}/></a></div><div className="download-meta"><span><span className="meta-dot"/> Windows desktop</span><span>Installer link will follow the first published release</span></div></div></section></main>
-    <footer className="footer"><div className="container footer-main"><Brand small/><p>Make space for your best work.</p><div className="footer-links"><a href="#features">Features</a><a href="#efith">EFITH AI</a><a href={`${GITHUB}/Nexora-Code`} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12}/></a></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora. Made for builders.</span><span>DESIGNED WITH INTENTION <span className="footer-pink">✳</span></span><a href="#top">BACK TO TOP ↑</a></div></footer>
-  </div>
+
+function ProductPreview() {
+  const [activeFile, setActiveFile] = useState('App.jsx');
+  const isStyleFile = activeFile === 'styles.css';
+  const isPackageFile = activeFile === 'package.json';
+
+  return (
+    <section className="product-preview" aria-label="Nexora Code interface preview">
+      <div className="preview-caption">
+        <span><i className="live-indicator" /> NEXORA CODE / WORKSPACE</span>
+        <span>WINDOWS DESKTOP IDE</span>
+      </div>
+      <div className="product-window">
+        <div className="window-titlebar">
+          <div className="window-controls" aria-hidden="true"><i /><i /><i /></div>
+          <div className="window-title"><img src="/nexora-mark.svg" alt="" /> Nexora Code <span>— nexora-app</span></div>
+          <span className="window-action" aria-hidden="true"><Command size={14} /></span>
+        </div>
+        <div className="window-content">
+          <aside className="activity-rail" aria-label="Workspace tools">
+            <img src="/nexora-mark.svg" alt="" />
+            <span className="rail-active"><FolderOpen size={17} /></span>
+            <span><GitBranch size={17} /></span>
+            <span><Terminal size={17} /></span>
+            <span><Sparkles size={17} /></span>
+          </aside>
+          <aside className="file-explorer">
+            <div className="explorer-heading">EXPLORER <ChevronDown size={13} /></div>
+            <div className="project-name"><ChevronDown size={13} /> NEXORA-APP</div>
+            <div className="file-list">
+              {projectFiles.map((file) => (
+                <button
+                  key={file.name}
+                  type="button"
+                  className={`file-item ${activeFile === file.name ? 'file-selected' : ''} ${file.kind === 'folder' ? 'folder-item' : ''}`}
+                  aria-pressed={activeFile === file.name}
+                  onClick={() => file.kind !== 'folder' && setActiveFile(file.name)}
+                  disabled={file.kind === 'folder'}
+                >
+                  {file.kind === 'folder' ? <FolderOpen size={14} /> : <FileCode2 size={14} />}
+                  {file.name}
+                </button>
+              ))}
+            </div>
+            <div className="explorer-status"><span /> Workspace open</div>
+          </aside>
+          <section className="code-editor" aria-label={`${activeFile} preview`}>
+            <div className="editor-tabs">
+              {['App.jsx', 'styles.css', 'package.json'].map((file) => (
+                <button key={file} type="button" onClick={() => setActiveFile(file)} aria-pressed={activeFile === file} className={activeFile === file ? 'tab-active' : ''}>
+                  <FileCode2 size={13} />{file}
+                </button>
+              ))}
+            </div>
+            <div className="editor-breadcrumb">src <span>/</span> {activeFile}</div>
+            <div className="code-content" aria-live="polite">
+              {isStyleFile ? <>
+                <CodeLine number="1"><span className="token-pink">.workspace</span> {'{'}</CodeLine>
+                <CodeLine number="2">&nbsp;&nbsp;<span className="token-blue">display</span>: flex;</CodeLine>
+                <CodeLine number="3">&nbsp;&nbsp;<span className="token-blue">min-height</span>: <span className="token-green">100vh</span>;</CodeLine>
+                <CodeLine number="4">&nbsp;&nbsp;<span className="token-blue">color</span>: <span className="token-green">var(--text-primary)</span>;</CodeLine>
+                <CodeLine number="5">{'}'}</CodeLine>
+                <CodeLine number="6">{' '}</CodeLine>
+                <CodeLine number="7"><span className="token-pink">.editor</span> {'{'}</CodeLine>
+                <CodeLine number="8">&nbsp;&nbsp;<span className="token-blue">flex</span>: 1;</CodeLine>
+                <CodeLine number="9">&nbsp;&nbsp;<span className="token-blue">overflow</span>: hidden;</CodeLine>
+                <CodeLine number="10">{'}'}</CodeLine>
+              </> : isPackageFile ? <>
+                <CodeLine number="1">{'{'}</CodeLine>
+                <CodeLine number="2">&nbsp;&nbsp;<span className="token-blue">"name"</span>: <span className="token-green">"nexora-app"</span>,</CodeLine>
+                <CodeLine number="3">&nbsp;&nbsp;<span className="token-blue">"private"</span>: <span className="token-orange">true</span>,</CodeLine>
+                <CodeLine number="4">&nbsp;&nbsp;<span className="token-blue">"scripts"</span>: {'{'}</CodeLine>
+                <CodeLine number="5">&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-blue">"dev"</span>: <span className="token-green">"vite"</span>,</CodeLine>
+                <CodeLine number="6">&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-blue">"build"</span>: <span className="token-green">"vite build"</span></CodeLine>
+                <CodeLine number="7">&nbsp;&nbsp;{'}'}</CodeLine>
+                <CodeLine number="8">{'}'}</CodeLine>
+              </> : <>
+                <CodeLine number="1"><span className="token-pink">import</span> {'{'} useState {'}'} <span className="token-pink">from</span> <span className="token-green">'react'</span>;</CodeLine>
+                <CodeLine number="2">{' '}</CodeLine>
+                <CodeLine number="3"><span className="token-pink">export default function</span> <span className="token-yellow">App</span>() {'{'}</CodeLine>
+                <CodeLine number="4">&nbsp;&nbsp;<span className="token-pink">const</span> [ready, setReady] =</CodeLine>
+                <CodeLine number="5">&nbsp;&nbsp;&nbsp;&nbsp;useState(<span className="token-orange">false</span>);</CodeLine>
+                <CodeLine number="6">{' '}</CodeLine>
+                <CodeLine number="7">&nbsp;&nbsp;<span className="token-pink">return</span> (</CodeLine>
+                <CodeLine number="8">&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-red">&lt;main</span> <span className="token-blue">className</span>=</CodeLine>
+                <CodeLine number="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-green">"workspace"</span><span className="token-red">&gt;</span></CodeLine>
+                <CodeLine number="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-red">&lt;Editor</span> <span className="token-blue">ready</span>=&#123;ready&#125; /&gt;</CodeLine>
+                <CodeLine number="11">&nbsp;&nbsp;&nbsp;&nbsp;<span className="token-red">&lt;/main&gt;</span></CodeLine>
+                <CodeLine number="12">&nbsp;&nbsp;);</CodeLine>
+                <CodeLine number="13">{'}'}</CodeLine>
+              </>}
+            </div>
+            <div className="editor-footer"><span className="cursor-dot" /> Select a file to preview its contents</div>
+          </section>
+          <aside className="efith-preview" aria-label="EFITH assistant preview">
+            <div className="efith-preview-title"><span><Sparkles size={14} /> EFITH</span><span className="efith-state">READY</span></div>
+            <div className="efith-preview-intro"><div className="efith-symbol"><Sparkles size={16} /></div><strong>Work through the next step.</strong><p>Ask about your code or describe what you want to change.</p></div>
+            <div className="efith-example"><span>YOU</span><p>Can you explain this component?</p></div>
+            <div className="efith-response"><span><Bot size={13} /> EFITH</span><p>I can inspect the selected file and walk through its structure.</p></div>
+            <div className="efith-compose">Message EFITH… <ArrowRight size={13} /></div>
+            <div className="efith-permission"><ShieldCheck size={12} /> Tool access follows your permission setting</div>
+          </aside>
+        </div>
+        <div className="window-statusbar"><span><GitBranch size={12} /> main</span><span><Play size={11} /> Ready</span><span className="status-spacer" /><span>UTF-8</span><span>Spaces: 2</span></div>
+      </div>
+      <p className="preview-note">Illustrative interface preview. Product features and availability may vary by release.</p>
+    </section>
+  );
 }
+
+function FeatureCard({ icon: Icon, title, description, detail }) {
+  return (
+    <article className="feature-card">
+      <div className="feature-icon"><Icon size={19} strokeWidth={1.7} /></div>
+      <span className="feature-detail">{detail}</span>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </article>
+  );
+}
+
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <div id="top" className="site-shell">
+      <div className="announcement">
+        <span className="announcement-mark"><Sparkles size={13} /></span>
+        <span>A focused desktop workspace for the work you want to make.</span>
+        <a href="#features">Explore Nexora <ArrowRight size={13} /></a>
+      </div>
+      <header className="site-header">
+        <nav className="nav container" aria-label="Main navigation">
+          <Brand />
+          <button
+            type="button"
+            className="mobile-menu"
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X size={19} /> : <Menu size={19} />}
+          </button>
+          <div id="primary-navigation" className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
+            <a href="#features" onClick={closeMenu}>Features</a>
+            <a href="#efith" onClick={closeMenu}>EFITH</a>
+            <a href="#about" onClick={closeMenu}>About</a>
+            <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
+            <a className="nav-download" href={RELEASES} target="_blank" rel="noreferrer">View releases <ArrowUpRight size={14} /></a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section className="hero container">
+          <div className="hero-copy">
+            <div className="eyebrow"><span /> NEXORA CODE / WINDOWS</div>
+            <h1>Your code.<br />Your workflow.<br /><span>One focused workspace.</span></h1>
+            <p className="hero-description">Nexora Code brings your editor, project files, terminal, Git workflow, and EFITH coding agent together in one Windows desktop IDE.</p>
+            <div className="hero-actions">
+              <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer">
+                <ArrowDownToLine size={16} /> Check Windows releases <ArrowUpRight size={14} />
+              </a>
+              <a className="button-secondary" href="#product">Explore the IDE <ArrowRight size={15} /></a>
+            </div>
+            <p className="availability"><span /> No public installer is currently listed. Check GitHub Releases for availability.</p>
+          </div>
+          <div className="hero-side">
+            <div className="hero-index"><span>01</span> / A workspace in context</div>
+            <div className="hero-rule" />
+            <p>Move between the code you are writing and the tools that help you ship it.</p>
+            <a href="#workflow">See how it fits together <ArrowRight size={14} /></a>
+          </div>
+        </section>
+
+        <div id="product" className="container preview-wrap">
+          <ProductPreview />
+        </div>
+
+        <section id="features" className="features-section section-pad">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span /> MADE FOR THE DAILY LOOP</div>
+                <h2>Keep the tools close.<br /><span>Keep your attention on the work.</span></h2>
+              </div>
+              <p>A desktop IDE that puts core development tools in one place, without hiding how they work.</p>
+            </div>
+            <div className="feature-grid">
+              {featureCards.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
+            </div>
+          </div>
+        </section>
+
+        <section id="workflow" className="workflow-section">
+          <div className="container workflow-layout">
+            <div className="workflow-heading">
+              <div className="eyebrow"><span /> A WORKSPACE THAT CONNECTS THE STEPS</div>
+              <h2>From open project<br />to <span>next commit.</span></h2>
+              <p>Keep the everyday parts of development within reach, and move between them as your work takes shape.</p>
+            </div>
+            <div className="workflow-steps">
+              <article className="workflow-step">
+                <span className="step-number">01</span>
+                <div className="step-icon"><FolderOpen size={18} /></div>
+                <div><h3>Open your workspace</h3><p>Browse project files and edit in the Monaco-powered editor.</p></div>
+              </article>
+              <article className="workflow-step">
+                <span className="step-number">02</span>
+                <div className="step-icon"><Terminal size={18} /></div>
+                <div><h3>Build and test in context</h3><p>Use the integrated terminal and keep project changes close at hand.</p></div>
+              </article>
+              <article className="workflow-step">
+                <span className="step-number">03</span>
+                <div className="step-icon"><GitBranch size={18} /></div>
+                <div><h3>Review your changes</h3><p>Work with Git and GitHub tools from the same desktop environment.</p></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="efith" className="efith-section">
+          <div className="container efith-layout">
+            <div className="efith-copy">
+              <div className="eyebrow"><span /> MEET EFITH</div>
+              <h2>A coding agent<br />that works <span>with you.</span></h2>
+              <p>EFITH is Nexora Code's AI coding agent. Ask questions about your project, get help planning a change, and review file edits before they are applied.</p>
+              <ul className="efith-points">
+                <li><Check size={15} /> Choose a supported AI provider and model.</li>
+                <li><Check size={15} /> Review proposed file changes before applying them.</li>
+                <li><Check size={15} /> Set the agent's tool permissions in its settings.</li>
+                <li><Check size={15} /> Return to saved conversations with chat history.</li>
+              </ul>
+              <a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Explore Nexora Code on GitHub <ExternalLink size={14} /></a>
+            </div>
+            <div className="efith-panel">
+              <div className="efith-panel-header"><span className="efith-panel-brand"><span className="efith-panel-mark"><Sparkles size={16} /></span><span><strong>EFITH</strong><small>CODING AGENT</small></span></span><span className="mode-pill">CHAT <ChevronDown size={12} /></span></div>
+              <div className="efith-panel-content">
+                <div className="chat-date">CONVERSATION / CURRENT WORKSPACE</div>
+                <div className="chat-user"><span>YOU</span><p>Help me understand where this component gets its data.</p></div>
+                <div className="chat-assistant"><span className="assistant-avatar"><Sparkles size={14} /></span><div><strong>EFITH</strong><p>I can trace the component's props and related project files. Would you like an explanation or a suggested change?</p><span className="review-example"><FileCode2 size={14} /> Review proposed changes</span></div></div>
+              </div>
+              <div className="permission-note"><ShieldCheck size={14} /> Permissions are configurable in EFITH settings</div>
+              <div className="chat-composer" aria-hidden="true"><span>Ask EFITH about your workspace…</span><span className="composer-send"><ArrowRight size={14} /></span></div>
+              <p className="efith-disclaimer">Illustrative example. Provider access and model availability depend on your configuration.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="about-section">
+          <div className="container about-layout">
+            <div className="about-mark"><img src="/nexora-mark.svg" alt="" /></div>
+            <div className="about-copy">
+              <div className="eyebrow"><span /> ABOUT NEXORA</div>
+              <h2>Built under the <span>Nexora</span> name.</h2>
+              <p>Nexora is a software brand founded and led by CEO Ishah Mushak. Nexora Code is its Windows desktop IDE, and EFITH was built by Ishah Mushak as its AI coding agent.</p>
+              <div className="about-links">
+                <a href={ORGANIZATION} target="_blank" rel="noreferrer"><Github size={15} /> Nexora on GitHub <ArrowUpRight size={13} /></a>
+                <a href={REPOSITORY} target="_blank" rel="noreferrer"><Braces size={15} /> Nexora Code repository <ArrowUpRight size={13} /></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="download" className="download-section">
+          <div className="container download-inner">
+            <div className="download-copy">
+              <div className="eyebrow"><span /> NEXORA CODE FOR WINDOWS</div>
+              <h2>See what is<br /><span>available.</span></h2>
+              <p>Visit the official release page for the latest published downloads and release notes.</p>
+              <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><Monitor size={16} /> View GitHub Releases <ArrowUpRight size={14} /></a>
+              <p className="availability availability-download"><span /> There is no public installer listed on the release page right now.</p>
+            </div>
+            <div className="release-card">
+              <div className="release-card-top"><span className="release-icon"><ArrowDownToLine size={17} /></span><span className="release-badge">OFFICIAL RELEASES</span></div>
+              <h3>Get the latest release</h3>
+              <p>Check the release page for downloadable builds, version details, and update notes.</p>
+              <a href={RELEASES} target="_blank" rel="noreferrer">Open release page <ArrowUpRight size={14} /></a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="container footer-main">
+          <div className="footer-brand-column"><Brand footer /><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
+          <div className="footer-links-group"><strong>PRODUCT</strong><a href="#features">Features</a><a href="#efith">EFITH</a><a href="#download">Downloads</a></div>
+          <div className="footer-links-group"><strong>PROJECT</strong><a href={REPOSITORY} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={12} /></a><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12} /></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12} /></a></div>
+        </div>
+        <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Made for the work ahead.</span></div>
+      </footer>
+    </div>
+  );
+}
+
 export default App;
