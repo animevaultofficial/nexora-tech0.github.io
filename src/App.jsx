@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import FeaturesPage from './FeaturesPage.jsx';
 import {
   ArrowDownToLine,
   ArrowRight,
@@ -70,7 +71,7 @@ const featureCards = [
 
 function Brand({ footer = false }) {
   return (
-    <a className={`brand${footer ? ' brand-footer' : ''}`} href="#top" aria-label="Nexora Code home">
+    <a className={`brand${footer ? ' brand-footer' : ''}`} href="/" aria-label="Nexora Code home">
       <img src="/nexora-mark.svg" width="34" height="34" alt="" />
       <span>NEXORA <span className="brand-muted">CODE</span></span>
     </a>
@@ -205,12 +206,14 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
+  if (window.location.pathname.replace(/\/+$/, '') === '/features') return <FeaturesPage />;
+
   return (
     <div id="top" className="site-shell">
       <div className="announcement">
         <span className="announcement-mark"><Sparkles size={13} /></span>
         <span>A focused desktop workspace for the work you want to make.</span>
-        <a href="#features">Explore Nexora <ArrowRight size={13} /></a>
+        <a href="/features/">Explore all features <ArrowRight size={13} /></a>
       </div>
       <header className="site-header">
         <nav className="nav container" aria-label="Main navigation">
@@ -226,7 +229,7 @@ function App() {
             {menuOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
           <div id="primary-navigation" className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
-            <a href="#features" onClick={closeMenu}>Features</a>
+            <a href="/features/" onClick={closeMenu}>Features</a>
             <a href="#efith" onClick={closeMenu}>EFITH</a>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
@@ -240,7 +243,7 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow"><span /> NEXORA CODE / WINDOWS</div>
             <h1>Your code.<br />Your workflow.<br /><span>One focused workspace.</span></h1>
-            <p className="hero-description">Nexora Code brings your editor, project files, terminal, Git workflow, and EFITH coding agent together in one Windows desktop IDE.</p>
+            <p className="hero-description">Nexora Code brings your editor, terminal, Git, integrated browser, Spotify, Discord, and EFITH together in one Windows desktop IDE. EFITH supports GitHub Copilot, OpenAI, Gemini, and additional configured AI providers.</p>
             <div className="hero-actions">
               <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer">
                 <ArrowDownToLine size={16} /> Check Windows releases <ArrowUpRight size={14} />
@@ -268,7 +271,7 @@ function App() {
                 <div className="eyebrow"><span /> MADE FOR THE DAILY LOOP</div>
                 <h2>Keep the tools close.<br /><span>Keep your attention on the work.</span></h2>
               </div>
-              <p>A desktop IDE that puts core development tools in one place, without hiding how they work.</p>
+              <p>A desktop IDE that puts core development tools in one place, without hiding how they work. <a className="feature-guide-link" href="/features/">Explore the complete feature guide <ArrowRight size={13}/></a></p>
             </div>
             <div className="feature-grid">
               {featureCards.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
@@ -368,7 +371,7 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand-column"><Brand footer /><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
-          <div className="footer-links-group"><strong>PRODUCT</strong><a href="#features">Features</a><a href="#efith">EFITH</a><a href="#download">Downloads</a></div>
+          <div className="footer-links-group"><strong>PRODUCT</strong><a href="/features/">Features</a><a href="#efith">EFITH</a><a href="#download">Downloads</a></div>
           <div className="footer-links-group"><strong>PROJECT</strong><a href={REPOSITORY} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={12} /></a><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12} /></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12} /></a></div>
         </div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Made for the work ahead.</span></div>
