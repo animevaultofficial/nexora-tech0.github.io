@@ -18,6 +18,19 @@
 .island-section .feature-guide-heading { grid-template-columns: 1fr minmax(260px, .55fr); }
 .island-section .feature-guide-heading h2 span { color: var(--spotify-green); }
 .island-showcase-visual { display: grid; grid-template-columns: minmax(0, 1.48fr) minmax(250px, .52fr); align-items: center; gap: clamp(38px, 6vw, 82px); }
+.island-showcase-real { align-items: start; }
+.island-real-capture { display: grid; min-width: 0; gap: 12px; margin: 0; padding: clamp(10px, 1.5vw, 16px); border: 1px solid #30343e; border-radius: 10px; background: linear-gradient(155deg, #161920, #0d0f14); box-shadow: 0 18px 50px #0004; }
+.island-capture-label { display: flex; align-items: center; gap: 7px; color: #8e939f; font: 8px var(--mono); letter-spacing: .09em; }
+.island-capture-label i { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: #87d99e; box-shadow: 0 0 12px #87d99e66; }
+.island-real-titlebar, .island-real-workspace { display: block; width: 100%; height: auto; border: 1px solid #2b2e37; border-radius: 6px; background: #0b0c10; object-fit: contain; }
+.island-real-titlebar { max-height: 220px; }
+.island-real-capture figcaption { color: #9296a1; font-size: 9px; line-height: 1.65; }
+.spotify-art-reference { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 12px; margin: 22px 0 0; padding: 12px; border: 1px solid #30333a; border-radius: 7px; background: #101216; }
+.spotify-art-reference > img { display: block; width: 64px; aspect-ratio: 1; border-radius: 4px; object-fit: cover; }
+.spotify-art-reference figcaption { display: grid; min-width: 0; gap: 4px; }
+.spotify-art-reference figcaption span { color: #858995; font: 8px var(--mono); letter-spacing: .07em; }
+.spotify-art-reference figcaption strong { color: #e4e4eb; font-size: 10px; line-height: 1.5; }
+.spotify-art-reference figcaption a { display: inline-flex; align-items: center; gap: 5px; color: #a4dcb2; font-size: 9px; }
 .island-desktop { position: relative; min-width: 0; padding: 0 0 24px; }
 .island-desktop::before { position: absolute; z-index: -1; inset: 12% -6% 13%; border-radius: 50%; background: #1ed76015; content: ""; filter: blur(55px); }
 .island-desktop-bar { display: flex; height: 37px; align-items: center; justify-content: space-between; gap: 10px; padding: 0 12px; border: 1px solid #343640; border-radius: 7px 7px 0 0; background: #17191e; color: #858995; font: 8px var(--mono); }

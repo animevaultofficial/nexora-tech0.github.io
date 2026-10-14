@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { siteUrl } from './site-url.js';
 import { ArrowRight, ArrowUpRight, Check, Code2, Search, Sparkles } from 'lucide-react';
 import SiteHeader from './SiteHeader.jsx';
 import SimpleIcon from './SimpleIcon.jsx';
@@ -20,7 +21,7 @@ function LanguageCard({ item, group }) {
     <span className="language-group-label">{group}</span>
     <code className="language-extensions">{item.ext}</code>
     <div className="language-card-foot">
-      {item.diagnostics ? <span className="language-diagnostics"><Check size={12}/> Editor diagnostics</span> : <span>Syntax highlighting</span>}
+      {item.diagnostics ? <span className="language-diagnostics"><Check size={12}/> Built-in diagnostics</span> : <span>Syntax highlighting</span>}
     </div>
   </article>;
 }
@@ -69,7 +70,7 @@ export default function TechStackPage() {
 
       <section className="stack-next container">
         <div><span className="eyebrow"><span/> MORE THAN LANGUAGE MODES</span><h2>Meet the agent<br/><span>inside the workflow.</span></h2><p>EFITH works with the open project through explicit tools and reviewable edits.</p></div>
-        <div className="stack-next-actions"><a className="button-primary" href="/efith/">Explore EFITH <ArrowRight size={14}/></a><a className="button-secondary" href="/features/">See all features <ArrowUpRight size={14}/></a></div>
+        <div className="stack-next-actions"><a className="button-primary" href={siteUrl('efith/')}>Explore EFITH <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('features/')}>See all features <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
     <footer className="site-footer"><div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><a href={REPOSITORY} target="_blank" rel="noreferrer">View the source on GitHub <ArrowUpRight size={12}/></a></div></footer>

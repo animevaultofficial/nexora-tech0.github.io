@@ -44,7 +44,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--pink-soft); out
 .brand-muted { color: #a1a5b0; font-weight: 500; }
 .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); }
 .nav-links > a { display: inline-flex; align-items: center; gap: 6px; color: #b6bac4; font-size: 12px; transition: color .18s ease; }
-.nav-links > a:hover, .footer-links-group a:hover { color: white; }
+.nav-links > a:hover, .nav-links > a[aria-current="page"], .footer-links-group a:hover { color: white; }
 .nav-links > a:nth-last-child(2) { color: #e1e2e7; }
 .nav-links > .nav-download { padding: 10px 13px; border: 1px solid #4a3b48; border-radius: 6px; background: #17141a; color: #f8eaf0; font-weight: 650; }
 .nav-links > .nav-download:hover { border-color: #9d506c; background: #21171e; }

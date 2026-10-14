@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { siteUrl } from './site-url.js';
 import { Camera, ChevronLeft, ChevronRight, Maximize2, Pause, Play } from 'lucide-react';
 
 const screenshots = [
@@ -53,8 +54,8 @@ export default function ScreenshotGallery() {
       {groups.map(name => <button key={name} type="button" className={group === name ? 'active' : ''} aria-pressed={group === name} onClick={() => setGroup(name)}>{name}</button>)}
     </div>
     <div className="screenshot-gallery-view">
-      <a className="screenshot-gallery-main" href={`/screenshots/${selected.file}`} target="_blank" rel="noreferrer" aria-label={`Open ${selected.title} screenshot full size`}>
-        <img key={selected.file} src={`/screenshots/${selected.file}`} alt={selected.alt} loading="lazy"/>
+      <a className="screenshot-gallery-main" href={siteUrl(`screenshots/${selected.file}`)} target="_blank" rel="noreferrer" aria-label={`Open ${selected.title} screenshot full size`}>
+        <img key={selected.file} src={siteUrl(`screenshots/${selected.file}`)} alt={selected.alt} loading="lazy"/>
         <span><Maximize2 size={14}/> Open full size</span>
       </a>
       <div className="screenshot-gallery-controls">

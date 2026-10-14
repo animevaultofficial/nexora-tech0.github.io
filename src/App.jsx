@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { siteUrl, siteRoute } from './site-url.js';
 import FeaturesPage from './FeaturesPage.jsx';
-import TechStackMenu from './TechStackMenu.jsx';
 import TechStackPage from './TechStackPage.jsx';
 import EfithPage from './EfithPage.jsx';
 import {
@@ -74,15 +74,15 @@ const featureCards = [
 
 function Brand({ footer = false }) {
   return (
-    <a className={`brand${footer ? ' brand-footer' : ''}`} href="/" aria-label="Nexora Code home">
-      <img src="/nexora-mark.svg" width="34" height="34" alt="" />
+    <a className={`brand${footer ? ' brand-footer' : ''}`} href={siteUrl('')} aria-label="Nexora Code home">
+      <img src={siteUrl('nexora-mark.svg')} width="34" height="34" alt="" />
       <span>NEXORA <span className="brand-muted">CODE</span></span>
     </a>
   );
 }
 
 function EfithMark({ size = 19 }) {
-  return <img className="efith-product-mark" src="/nexora-mark.svg" width={size} height={size} alt="EFITH"/>;
+  return <img className="efith-product-mark" src={siteUrl('nexora-mark.svg')} width={size} height={size} alt="EFITH"/>;
 }
 
 function CodeLine({ number, children }) {
@@ -103,12 +103,12 @@ function ProductPreview() {
       <div className="product-window">
         <div className="window-titlebar">
           <div className="window-controls" aria-hidden="true"><i /><i /><i /></div>
-          <div className="window-title"><img src="/nexora-mark.svg" alt="" /> Nexora Code <span>— nexora-app</span></div>
+          <div className="window-title"><img src={siteUrl('nexora-mark.svg')} alt="" /> Nexora Code <span>— nexora-app</span></div>
           <span className="window-action" aria-hidden="true"><Command size={14} /></span>
         </div>
         <div className="window-content">
           <aside className="activity-rail" aria-label="Workspace tools">
-            <img src="/nexora-mark.svg" alt="" />
+            <img src={siteUrl('nexora-mark.svg')} alt="" />
             <span className="rail-active"><FolderOpen size={17} /></span>
             <span><GitBranch size={17} /></span>
             <span><Terminal size={17} /></span>
@@ -205,7 +205,7 @@ function RealProductPreview() {
       <span>REAL WINDOWS DESKTOP IDE</span>
     </div>
     <figure className="product-real-figure">
-      <img src="/screenshots/ide-overview.png" alt="Actual Nexora Code desktop IDE with Explorer, Spotify titlebar controller, editor workspace, and integrated terminal" fetchPriority="high"/>
+      <img src={siteUrl('screenshots/ide-overview.png')} alt="Actual Nexora Code desktop IDE with Explorer, Spotify titlebar controller, editor workspace, and integrated terminal" fetchPriority="high"/>
       <figcaption>This is a screenshot of the running Nexora Code IDE—not a reconstructed interface.</figcaption>
     </figure>
   </section>;
@@ -226,7 +226,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
-  const route = window.location.pathname.replace(/\/+$/, '') || '/';
+  const route = siteRoute();
   if (route === '/features') return <FeaturesPage />;
   if (route === '/tech-stack') return <TechStackPage />;
   if (route === '/efith') return <EfithPage />;
@@ -236,7 +236,7 @@ function App() {
       <div className="announcement">
         <span className="announcement-mark"><Sparkles size={13} /></span>
         <span>A focused desktop workspace for the work you want to make.</span>
-        <a href="/features/">Explore all features <ArrowRight size={13} /></a>
+        <a href={siteUrl('features/')}>Explore all features <ArrowRight size={13} /></a>
       </div>
       <header className="site-header">
         <nav className="nav container" aria-label="Main navigation">
@@ -252,9 +252,9 @@ function App() {
             {menuOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
           <div id="primary-navigation" className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
-            <a href="/features/" onClick={closeMenu}>Features</a>
-            <TechStackMenu/>
-            <a href="/efith/" onClick={closeMenu}>EFITH</a>
+            <a href={siteUrl('features/')} onClick={closeMenu}>Features</a>
+            <a href={siteUrl('tech-stack/')}>Tech stack</a>
+            <a href={siteUrl('efith/')} onClick={closeMenu}>EFITH</a>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
             <a className="nav-download" href={RELEASES} target="_blank" rel="noreferrer">View releases <ArrowUpRight size={14} /></a>
@@ -295,7 +295,7 @@ function App() {
                 <div className="eyebrow"><span /> MADE FOR THE DAILY LOOP</div>
                 <h2>Keep the tools close.<br /><span>Keep your attention on the work.</span></h2>
               </div>
-              <p>A desktop IDE that puts core development tools in one place, without hiding how they work. <a className="feature-guide-link" href="/features/">Explore the complete feature guide <ArrowRight size={13}/></a></p>
+              <p>A desktop IDE that puts core development tools in one place, without hiding how they work. <a className="feature-guide-link" href={siteUrl('features/')}>Explore the complete feature guide <ArrowRight size={13}/></a></p>
             </div>
             <div className="feature-grid">
               {featureCards.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
@@ -342,7 +342,7 @@ function App() {
                 <li><Check size={15} /> Set the agent's tool permissions in its settings.</li>
                 <li><Check size={15} /> Return to saved conversations with chat history.</li>
               </ul>
-              <div className="hero-actions"><a className="text-link" href="/efith/">Explore EFITH in detail <ArrowRight size={14}/></a><a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Nexora Code on GitHub <ExternalLink size={14} /></a></div>
+              <div className="hero-actions"><a className="text-link" href={siteUrl('efith/')}>Explore EFITH in detail <ArrowRight size={14}/></a><a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Nexora Code on GitHub <ExternalLink size={14} /></a></div>
             </div>
             <div className="efith-panel">
               <div className="efith-panel-header"><span className="efith-panel-brand"><span className="efith-panel-mark"><Sparkles size={16} /></span><span><strong>EFITH</strong><small>CODING AGENT</small></span></span><span className="mode-pill">CHAT <ChevronDown size={12} /></span></div>
@@ -360,7 +360,7 @@ function App() {
 
         <section id="about" className="about-section">
           <div className="container about-layout">
-            <div className="about-mark"><img src="/nexora-mark.svg" alt="" /></div>
+            <div className="about-mark"><img src={siteUrl('nexora-mark.svg')} alt="" /></div>
             <div className="about-copy">
               <div className="eyebrow"><span /> ABOUT NEXORA</div>
               <h2>Built under the <span>Nexora</span> name.</h2>
@@ -395,7 +395,7 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand-column"><Brand footer /><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
-          <div className="footer-links-group"><strong>PRODUCT</strong><a href="/features/">Features</a><a href="/efith/">EFITH</a><a href="/tech-stack/">Tech stack</a><a href="#download">Downloads</a></div>
+          <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('features/')}>Features</a><a href={siteUrl('efith/')}>EFITH</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href="#download">Downloads</a></div>
           <div className="footer-links-group"><strong>PROJECT</strong><a href={REPOSITORY} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={12} /></a><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12} /></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12} /></a></div>
         </div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Made for the work ahead.</span></div>

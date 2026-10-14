@@ -10,8 +10,8 @@ export const techStackGroups = [
   {
     name: 'Web & UI',
     entries: [
-      { name: 'JavaScript', ext: '.js · .mjs · .cjs', icon: siJavascript },
-      { name: 'JSX / React', ext: '.jsx', icon: siReact },
+      { name: 'JavaScript', ext: '.js · .mjs · .cjs', icon: siJavascript, diagnostics: true },
+      { name: 'JSX / React', ext: '.jsx', icon: siReact, diagnostics: true },
       { name: 'TypeScript', ext: '.ts · .mts · .cts', icon: siTypescript, diagnostics: true },
       { name: 'TSX', ext: '.tsx', icon: siTypescript, diagnostics: true },
       { name: 'HTML', ext: '.html · .htm', icon: siHtml5 },

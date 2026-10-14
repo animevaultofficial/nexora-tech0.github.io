@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, FileCode2, FolderSearch, Github, History, KeyRound, MessageSquare, Search, ShieldAlert, ShieldCheck, Sparkles, Terminal } from 'lucide-react';
+import { siteUrl } from './site-url.js';
 import SiteHeader from './SiteHeader.jsx';
 import ProviderMark from './ProviderMark.jsx';
 import { aiProviders } from './provider-data.js';
@@ -18,10 +19,10 @@ export default function EfithPage() {
     <SiteHeader currentPage="efith"/>
     <main>
       <section className="efith-page-hero container">
-        <div className="eyebrow efith-brand-lockup"><img src="/nexora-mark.svg" alt=""/> NEXORA CODE / EFITH AI</div>
+        <div className="eyebrow efith-brand-lockup"><img src={siteUrl('nexora-mark.svg')} alt=""/> NEXORA CODE / EFITH AI</div>
         <h1>Meet EFITH.<br/><span>Your coding agent, in context.</span></h1>
         <p>EFITH is Nexora Code's AI coding agent. Ask questions about a project, explore workspace files with tools, and review proposed edits before they are applied. Choose the provider, model, and permission level that fit the task.</p>
-        <div className="efith-page-actions"><a className="button-primary" href="/features/">Explore all IDE features <ArrowRight size={14}/></a><a className="button-secondary" href={REPOSITORY} target="_blank" rel="noreferrer">View Nexora Code source <ArrowUpRight size={14}/></a></div>
+        <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all IDE features <ArrowRight size={14}/></a><a className="button-secondary" href={REPOSITORY} target="_blank" rel="noreferrer">View Nexora Code source <ArrowUpRight size={14}/></a></div>
       </section>
 
       <section className="efith-workflow-section">
@@ -38,8 +39,8 @@ export default function EfithPage() {
             </ul>
           </div>
           <figure className="efith-agent-preview">
-            <img src="/screenshots/efith-agent.png" alt="Actual Nexora Code IDE with EFITH open in its coding-agent sidebar" loading="lazy"/>
-            <figcaption><img src="/nexora-mark.svg" alt=""/> EFITH in the real Nexora Code workspace</figcaption>
+            <img src={siteUrl('screenshots/efith-agent.png')} alt="Actual Nexora Code IDE with EFITH open in its coding-agent sidebar" loading="lazy"/>
+            <figcaption><img src={siteUrl('nexora-mark.svg')} alt=""/> EFITH in the real Nexora Code workspace</figcaption>
           </figure>
         </div>
       </section>
@@ -83,7 +84,7 @@ export default function EfithPage() {
           <div className="efith-provider-model"><span>Default model</span><code>{provider.model}</code></div>
         </article>)}</div>
         <p className="efith-model-note"><KeyRound size={14}/> Default model IDs are starting selections from the app; use Fetch available models to check what your account or endpoint currently offers. API keys are configured per provider and are not written into workspace files.</p>
-        <figure className="efith-settings-capture"><img src="/screenshots/efith-provider-settings.png" alt="Actual EFITH provider selector showing the supported AI providers in Nexora Code" loading="lazy"/><figcaption><img src="/nexora-mark.svg" alt=""/> EFITH's actual provider picker in Agent settings</figcaption></figure>
+        <figure className="efith-settings-capture"><img src={siteUrl('screenshots/efith-provider-settings.png')} alt="Actual EFITH provider selector showing the supported AI providers in Nexora Code" loading="lazy"/><figcaption><img src={siteUrl('nexora-mark.svg')} alt=""/> EFITH's actual provider picker in Agent settings</figcaption></figure>
       </section>
 
       <section className="efith-privacy-section">
@@ -95,7 +96,7 @@ export default function EfithPage() {
 
       <section className="efith-page-cta container">
         <div><span className="eyebrow"><span/> PART OF NEXORA CODE</span><h2>See EFITH alongside<br/><span>the rest of your tools.</span></h2></div>
-        <div className="efith-page-actions"><a className="button-primary" href="/features/">Explore all features <ArrowRight size={14}/></a><a className="button-secondary" href="/tech-stack/">Explore language support <ArrowUpRight size={14}/></a></div>
+        <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all features <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('tech-stack/')}>Explore language support <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
     <footer className="site-footer"><div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><a href={REPOSITORY} target="_blank" rel="noreferrer">View the source on GitHub <ArrowUpRight size={12}/></a></div></footer>

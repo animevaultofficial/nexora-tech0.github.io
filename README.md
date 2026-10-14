@@ -16,7 +16,7 @@ npm run build
 npm run preview
 ```
 
-Vite writes the production site to `dist/`. The repository is configured as the account's GitHub Pages site at `https://nexora-tech0.github.io/`, so the production base path is `/`.
+Vite writes the production site to `dist/`. The repository is hosted as a project site at `https://animevaultofficial.github.io/nexora-tech0.github.io/`. The GitHub Actions build sets the production base path to `/nexora-tech0.github.io/`; local development keeps the root base path.
 
 ## Deployment
 
