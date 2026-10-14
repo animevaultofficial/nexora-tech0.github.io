@@ -1,0 +1,90 @@
+/* Nexora Code website: product-first styling, with restrained colour and no decorative AI glow. */
+:root {
+  --pink: #e96b91;
+  --pink-soft: #f08eaa;
+  --surface: #111318;
+  --surface-raised: #17191f;
+  --surface-soft: #1b1e25;
+  --line: #30333b;
+  --line-strong: #414550;
+}
+html { scroll-behavior: auto; }
+body { background: #0c0d10; }
+.eyebrow, .feature-detail, .footer-links-group > strong, .release-badge,
+.preview-caption, .feature-block-meta, .feature-guide-index, .stack-catalog-kicker,
+.stack-result-count, .language-mode-tag, .provider-kicker, .efith-page-kicker,
+.efith-permission-badge { letter-spacing: .035em; }
+.eyebrow { font-size: 10px; color: #b7bac3; }
+.eyebrow > span:first-child { background: var(--pink); box-shadow: none; }
+h1, h2, h3 { text-wrap: balance; }
+.hero h1, .feature-guide-hero h1, .tech-stack-hero h1, .efith-page-hero h1 {
+  font-size: clamp(2.55rem, 5.1vw, 4.35rem);
+  font-weight: 620; letter-spacing: -.045em; line-height: 1.06;
+}
+.hero h1 span, .section-heading h2 span, .workflow-heading h2 span,
+.efith-copy h2 span, .about-copy h2 span, .download-copy h2 span,
+.feature-guide-hero h1 span, .feature-guide-heading h2 span,
+.feature-block-copy h3 span, .tech-stack-hero h1 span, .stack-next h2 span,
+.efith-page-hero h1 span, .efith-workflow-copy h2 span, .efith-page-cta h2 span {
+  color: #f0a0b5; background: none; -webkit-text-fill-color: currentColor;
+}
+.site-shell [class*="section"], .site-shell [class*="-card"],
+.site-shell [class*="-panel"], .site-shell [class*="-preview"] {
+  background-image: none;
+  box-shadow: none;
+}
+.site-header, .announcement { background: #0c0d10; backdrop-filter: none; }
+.announcement { min-height: 34px; color: #a7aab3; border-bottom: 1px solid var(--line); }
+.site-header { border-bottom-color: var(--line); }
+.button-primary, .button-secondary, .nav-download {
+  border-radius: 5px; box-shadow: none;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.button-primary { background: #e96b91; color: #171015; border-color: #e96b91; }
+.button-primary:hover { background: #f08eaa; border-color: #f08eaa; }
+.button-secondary, .nav-download { background: #15171d; border-color: #363943; }
+.feature-card, .release-card, .workflow-step, .efith-panel, .product-window,
+.product-real-figure, .about-mark, .feature-app-card, .language-card,
+.efith-capability-grid article, .efith-permission-card, .efith-provider-card,
+.efith-agent-preview, .efith-privacy-card { box-shadow: none; background-image: none; }
+.feature-card, .release-card, .feature-app-card, .language-card,
+.efith-capability-grid article, .efith-permission-card, .efith-provider-card {
+  border-radius: 7px; border-color: #30333b; background-color: #121419;
+}
+.feature-card:hover, .language-card:hover { transform: none; border-color: #50535d; }
+.product-window, .product-real-figure, .efith-panel, .efith-agent-preview {
+  border-radius: 7px; box-shadow: 0 12px 36px #0003;
+}
+.feature-icon, .tool-feature-icon, .step-icon, .efith-permission-icon,
+.efith-capability-grid article > span, .efith-provider-card .provider-logo {
+  border-radius: 5px; box-shadow: none;
+}
+a { text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #f08eaa; outline-offset: 3px; }
+.feature-guide-hero h1, .feature-guide-heading h2, .feature-cta-inner h2,
+.tech-stack-hero h1, .stack-next h2, .efith-page-hero h1, .efith-workflow-copy h2,
+.efith-page .feature-guide-heading h2, .efith-page-cta h2 {
+  font-size: clamp(2.25rem, 4.6vw, 3.65rem); letter-spacing: -.045em; line-height: 1.1;
+}
+.feature-guide-hero, .feature-guide-cta, .live-ide-showcase, .island-showcase,
+.feature-block, .feature-apps-section, .feature-guide-section,
+.efith-workflow-section, .efith-privacy-card {
+  background-image: none;
+}
+.feature-guide-hero > p, .feature-guide-heading > p, .feature-block-copy > p,
+.feature-app-card > p, .efith-page-hero > p, .efith-workflow-copy > p {
+  max-width: 68ch; color: #b4b7c0; font-size: 14px; line-height: 1.75;
+}
+.feature-block-capture, .feature-app-card, .guide-preview, .provider-panel,
+.screenshot-gallery-view, .live-ide-frame, .island-real-capture,
+.stack-summary > span, .stack-search, .stack-filters button, .stack-result-count,
+.stack-no-results, .stack-support-note { border-radius: 6px; box-shadow: none; }
+.feature-app-card, .provider-panel, .stack-summary > span, .stack-search,
+.stack-filters button, .language-card { background: #121419; }
+.feature-app-card.feature-app-spotify { border-color: #31533d; background: #121a16; }
+.language-card { background-image: none; }
+.stack-support-note, .efith-privacy-card { background: #151318; }
+.efith-workflow-section { background: #101115; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
