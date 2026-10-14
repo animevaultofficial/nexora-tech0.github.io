@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { siteUrl } from './site-url.js';
-import { ArrowRight, ArrowUpRight, Check, Code2, Search, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Code2, Search } from 'lucide-react';
 import SiteHeader from './SiteHeader.jsx';
 import SimpleIcon from './SimpleIcon.jsx';
 import { techStackGroups, techStackLanguageCount } from './tech-stack-data.js';
@@ -43,7 +43,7 @@ export default function TechStackPage() {
     <main>
       <section className="tech-stack-hero container">
         <div className="eyebrow"><span/> NEXORA CODE / EDITOR LANGUAGE SUPPORT</div>
-        <h1>A stack that speaks<br/><span>your project's language.</span></h1>
+        <h1>Language and file support</h1>
         <p>Browse the file extensions Nexora maps to Monaco language modes. Use the search and filters to find a language, format, or file type and see the level of editor support currently configured.</p>
         <div className="stack-summary">
           <span><strong>{techStackLanguageCount}</strong><small>mapped language modes</small></span>
@@ -54,7 +54,7 @@ export default function TechStackPage() {
 
       <section className="stack-catalog container" aria-labelledby="stack-catalog-title">
         <div className="stack-catalog-head">
-          <div><span className="stack-catalog-kicker"><Sparkles size={13}/> LANGUAGE &amp; FILE SUPPORT</span><h2 id="stack-catalog-title">The complete language map</h2><p>These are the extensions explicitly mapped in the current Nexora Code editor.</p></div>
+          <div><span className="stack-catalog-kicker"><Code2 size={13}/> LANGUAGE AND FILE SUPPORT</span><h2 id="stack-catalog-title">Supported file types</h2><p>These are the extensions explicitly mapped in the current Nexora Code editor.</p></div>
           <span className="stack-result-count">{visibleCount} / {techStackLanguageCount} shown</span>
         </div>
         <label className="stack-search"><Search size={16}/><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a language or extension, e.g. .tsx"/>{query && <button type="button" onClick={() => setQuery('')} aria-label="Clear language search">Clear</button>}</label>
@@ -69,7 +69,7 @@ export default function TechStackPage() {
       </section>
 
       <section className="stack-next container">
-        <div><span className="eyebrow"><span/> MORE THAN LANGUAGE MODES</span><h2>Meet the agent<br/><span>inside the workflow.</span></h2><p>EFITH works with the open project through explicit tools and reviewable edits.</p></div>
+        <div><span className="eyebrow"><span/> ALSO IN NEXORA CODE</span><h2>EFITH coding agent</h2><p>EFITH works with the open project through explicit tools and reviewable edits.</p></div>
         <div className="stack-next-actions"><a className="button-primary" href={siteUrl('efith/')}>Explore EFITH <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('features/')}>See all features <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
