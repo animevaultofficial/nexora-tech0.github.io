@@ -1,0 +1,70 @@
+.installation-page { color: #f1f1f4; }
+.install-hero { display: grid; grid-template-columns: minmax(0, 1fr) 270px; align-items: end; gap: 64px; padding-top: 86px; padding-bottom: 76px; }
+.install-hero-copy { min-width: 0; max-width: 760px; }
+.install-hero h1 { margin: 18px 0 18px; font-size: clamp(42px, 5.2vw, 67px); font-weight: 640; letter-spacing: -.055em; line-height: 1.04; }
+.install-hero h1 span { color: #f0a0b5; }
+.install-hero-copy > p { max-width: 680px; color: #b4b7c0; font-size: 15px; line-height: 1.8; }
+.install-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 26px 0 18px; }
+.install-availability { display: flex; align-items: flex-start; gap: 8px; max-width: 610px; color: #999da8 !important; font-size: 11px !important; }
+.install-availability svg { flex: 0 0 auto; margin-top: 3px; color: #d2b0be; }
+.install-hero-note { padding: 22px; border: 1px solid #30333b; border-radius: 7px; background: #121419; }
+.install-note-icon { display: grid; width: 40px; height: 40px; place-items: center; margin-bottom: 18px; border: 1px solid #354c3b; border-radius: 6px; background: #17221a; color: #9cd5a7; }
+.install-hero-note strong { display: block; font-size: 16px; letter-spacing: -.02em; }
+.install-hero-note p { margin: 8px 0 0; color: #a9adb7; font-size: 12px; line-height: 1.75; }
+.install-components-section, .install-steps-section { padding: 72px 0; border-top: 1px solid #262932; }
+.install-components-section { background: #101115; }
+.install-section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr); align-items: end; gap: 40px; margin-bottom: 30px; }
+.install-section-heading h2, .install-bottom-inner h2 { margin: 13px 0 0; font-size: clamp(31px, 4vw, 46px); font-weight: 630; letter-spacing: -.05em; line-height: 1.08; }
+.install-section-heading > p { margin: 0; color: #aeb1ba; font-size: 13px; line-height: 1.8; }
+.install-component-list { border-top: 1px solid #30333b; }
+.install-component { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; align-items: start; gap: 18px; padding: 22px 4px; border-bottom: 1px solid #30333b; }
+.install-component-icon { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid #353842; border-radius: 8px; background: #17191f; }
+.install-component-icon.spotify { color: #1ed760; border-color: #28533a; background: #142019; }
+.install-component-icon.discord { color: #a8b5ff; border-color: #373c5b; background: #191a28; }
+.install-component-icon.git { color: #f28b69; border-color: #573b32; background: #211815; }
+.install-component-icon.node { color: #c5df7b; border-color: #48512c; background: #1b2013; }
+.install-component-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.install-component-heading h3 { margin: 0; color: #f2f2f5; font-size: 17px; font-weight: 630; }
+.install-component-heading > span { padding: 4px 7px; border: 1px solid #343741; border-radius: 4px; color: #a8acb7; font-size: 10px; }
+.install-component-copy > p { max-width: 690px; margin: 9px 0; color: #b0b3bd; font-size: 12px; line-height: 1.75; }
+.install-component-action { display: flex; align-items: center; gap: 7px; color: #c9a8b6; font-size: 11px; line-height: 1.5; }
+.install-component-action svg { flex: 0 0 auto; color: #93c99b; }
+.install-component-index { padding-top: 3px; color: #656a76; font: 11px var(--mono); }
+.install-steps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #30333b; border-radius: 7px; overflow: hidden; }
+.install-steps-grid article { position: relative; min-width: 0; padding: 23px; background: #121419; }
+.install-steps-grid article + article { border-left: 1px solid #30333b; }
+.install-step-number { position: absolute; top: 20px; right: 20px; color: #727681; font: 11px var(--mono); }
+.install-step-icon { display: grid; width: 40px; height: 40px; place-items: center; margin-bottom: 22px; border: 1px solid #3a343a; border-radius: 6px; background: #1a171d; color: #eaa1b9; }
+.install-steps-grid h3 { margin: 0 0 9px; font-size: 16px; font-weight: 620; }
+.install-steps-grid p { min-height: 72px; margin: 0 0 15px; color: #aeb1ba; font-size: 12px; line-height: 1.75; }
+.install-steps-grid a, .install-step-foot { display: inline-flex; align-items: center; gap: 5px; color: #e6a0b6; font-size: 11px; }
+.install-step-foot { color: #969aa5; }
+.install-bottom-cta { padding: 60px 0; border-top: 1px solid #282b33; background: #0e0f13; }
+.install-bottom-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.install-bottom-inner > div { max-width: 630px; }
+.install-bottom-inner p { margin: 12px 0 0; color: #aeb1ba; font-size: 13px; line-height: 1.75; }
+@media (max-width: 900px) {
+  .install-hero { grid-template-columns: minmax(0, 1fr) 230px; gap: 30px; }
+  .install-section-heading { grid-template-columns: 1fr; gap: 14px; }
+  .install-steps-grid article { padding: 18px; }
+}
+@media (max-width: 720px) {
+  .install-hero { grid-template-columns: 1fr; gap: 25px; padding-top: 56px; padding-bottom: 48px; }
+  .install-hero h1 { font-size: clamp(39px, 10vw, 54px); }
+  .install-hero-copy > p { font-size: 13px; }
+  .install-hero-note { max-width: none; }
+  .install-components-section, .install-steps-section { padding: 50px 0; }
+  .install-component { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 19px 0; }
+  .install-component-icon { width: 42px; height: 42px; }
+  .install-component-index { display: none; }
+  .install-steps-grid { grid-template-columns: 1fr; }
+  .install-steps-grid article + article { border-top: 1px solid #30333b; border-left: 0; }
+  .install-steps-grid p { min-height: 0; }
+  .install-bottom-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
+}
+@media (max-width: 420px) {
+  .install-hero-actions { align-items: stretch; flex-direction: column; }
+  .install-hero-actions > a { justify-content: center; }
+  .install-component-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .install-component-heading > span { font-size: 9px; }
+}
