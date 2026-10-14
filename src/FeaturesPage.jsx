@@ -43,7 +43,7 @@ function RealIslandPreview() {
     </figure>
     <div className="island-copy">
       <span className="island-kicker"><SimpleIcon icon={siSpotify} title="Spotify" size={15}/> SPOTIFY DYNAMIC ISLAND</span>
-      <h3>Keep the beat.<br/><span>Keep your place.</span></h3>
+      <h3>Spotify controls close at hand.</h3>
       <p>A compact, resizable music control sits in the IDE titlebar. It surfaces the active track and album art, adds a playback visualizer, and keeps essential controls close while you work.</p>
       <ul>
         <li><Check size={15}/> Previous, play/pause, and next track</li>
@@ -156,8 +156,8 @@ export default function FeaturesPage() {
     <main>
       <section className="feature-guide-hero container">
         <div className="eyebrow"><span/> NEXORA CODE / FEATURE GUIDE</div>
-        <h1>More than an editor.<br/><span>Your tools, in context.</span></h1>
-        <p>Explore the real workflows built into Nexora Code—from editing and source control to music, communication, image work, and EFITH. Each preview illustrates the shipped interface; integrations may require their own account or configuration.</p>
+        <h1>Nexora Code features</h1>
+        <p>See the current interface and features. Some integrations require a separate account or local configuration.</p>
         <div className="feature-guide-actions"><a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><ArrowDownToLine size={16}/> Check Windows releases <ArrowUpRight size={14}/></a><a className="button-secondary" href={siteUrl('')}>Back to overview <ArrowRight size={15}/></a></div>
         <div className="feature-guide-index"><a href="#editor"><Code2 size={14}/> Editor</a><a href="#music"><Music2 size={14}/> Spotify</a><a href="#apps"><Layers size={14}/> Built-in apps</a><a href="#efith"><Bot size={14}/> EFITH</a><a href="#developer-tools"><Settings2 size={14}/> Developer tools</a><a href="#live-preview"><Monitor size={14}/> Live preview</a><a href="#screenshots"><Camera size={14}/> Screenshots</a></div>
       </section>
@@ -167,14 +167,14 @@ export default function FeaturesPage() {
 
       <section id="music" className="island-section">
         <div className="container">
-          <SectionHeading eyebrow="MUSIC THAT STAYS IN THE FLOW" title={<>Meet the Spotify<br/><span>Dynamic Island.</span></>}>A glanceable, interactive music surface in the titlebar, backed by the full Spotify Controller in the sidebar. No need to switch away just to skip a track.</SectionHeading>
+          <SectionHeading eyebrow="SPOTIFY CONTROLS" title={<>Spotify controls in the titlebar.</>}>The titlebar player shows the current track and provides quick playback controls. More controls are available in the Spotify sidebar.</SectionHeading>
           <RealIslandPreview/>
           <div className="island-detail-strip"><span><SimpleIcon icon={siSpotify} title="Spotify" size={16}/><b>Spotify Desktop</b><small>Windows media controls</small></span><span><Globe size={16}/><b>Spotify Web</b><small>Built-in browser session</small></span><span><Volume2 size={16}/><b>Quick controls</b><small>Seek, repeat, volume</small></span></div>
         </div>
       </section>
 
       <section id="editor" className="feature-guide-section container">
-        <SectionHeading eyebrow="THE EVERYDAY DEVELOPMENT LOOP" title={<>Code, explore, and run<br/><span>without losing context.</span></>}>The workspace is designed around the practical loop: open project files, edit, use a shell, inspect changes, and keep reference pages close.</SectionHeading>
+        <SectionHeading eyebrow="EDITOR AND WORKSPACE" title={<>Edit files, run commands, review changes.</>}>Open files, edit code, use a terminal, inspect changes, and keep documentation nearby.</SectionHeading>
         <FeatureBlock id="editing" number="01" eyebrow="EDITOR + EXPLORER" title="A project workspace you can shape." kind="editor" description="Open a folder into a Monaco-powered editor and a live project Explorer. Keep files in tabs, compare work side by side, and jump straight to a file or command without leaving the keyboard." points={['Monaco editing with syntax highlighting and editor-level JavaScript/TypeScript diagnostics','File tree, create/rename/delete, quick open, and search across workspace files','Multiple editor tabs, split editor, diff view, and unsaved-change safeguards','Customize font, tab size, wrapping, minimap, line numbers, suggestions, and editor behavior']} note="Python and C/C++ have syntax highlighting, but external language servers are not configured by default."/>
         <FeatureBlock id="terminal" number="02" eyebrow="INTEGRATED TERMINAL" title="Run the project where you edit it." kind="terminal" reverse description="The terminal is part of the workspace, not a separate window. Start sessions, switch shells, split panes, and keep command output beside your source." points={['PowerShell, Command Prompt, and Git Bash options','Multiple terminal sessions with split, restart, clear, and resize controls','xterm.js terminal with scrollback and theme-aware colors','Ctrl-click detected links to open them in your default browser']}/>
         <FeatureBlock id="source-control" number="03" eyebrow="GIT + GITHUB" title="Review work before it leaves your machine." kind="git" description="Use source control views to inspect file changes and diffs, stage intentionally, commit, and manage repository history from the IDE." points={['Stage and unstage files; review staged and unstaged diffs','Commit, branch, remote, push/pull, clone, and repository initialization actions','Browse commit history and inspect files in commits','Review merge conflicts and edit the resolved file before staging','GitHub sign-in and a separate workspace for repositories, issues, and pull requests']}/>
@@ -183,7 +183,7 @@ export default function FeaturesPage() {
 
       <section id="apps" className="feature-guide-apps">
         <div className="container">
-          <SectionHeading eyebrow="BUILT-IN APPS, RIGHT IN THE IDE" title={<>Your working tools.<br/><span>Not just code tools.</span></>}>Nexora brings music and communication into the same desktop workspace, while keeping their content separate from your code editor.</SectionHeading>
+          <SectionHeading eyebrow="INTEGRATED APPS" title={<>Spotify, Discord, and browser.</>}>Use supported music, communication, and browser tools alongside your code.</SectionHeading>
           <div className="feature-app-grid">
             <article className="feature-app-card feature-app-spotify"><img className="feature-app-screenshot" src={siteUrl('screenshots/spotify-controller.png')} alt="Actual Nexora Code Spotify Controller with playback, seek, source selection, and volume controls" loading="lazy"/><div className="feature-app-icon spotify-icon"><SimpleIcon icon={siSpotify} title="Spotify" size={19}/></div><span className="feature-detail">SPOTIFY CONTROLLER</span><h3>Music with a full control surface.</h3><p>Choose automatic, Spotify Desktop, or Spotify Web playback. Search tracks, artists, and albums; open playlists; see current artwork and track details; seek, skip, repeat, and adjust desktop app volume.</p><ul><li><Check size={14}/> Desktop playback through Windows media controls</li><li><Check size={14}/> Spotify Web Player in the built-in browser</li><li><Check size={14}/> Compact titlebar player with visualizer</li></ul><a href="#music">Explore the Dynamic Island <ArrowRight size={14}/></a></article>
             <article className="feature-app-card"><img className="feature-app-screenshot" src={siteUrl('screenshots/discord.png')} alt="Actual Discord workspace inside Nexora Code" loading="lazy"/><div className="feature-app-icon discord-icon"><SimpleIcon icon={siDiscord} title="Discord" size={19}/></div><span className="feature-detail">DISCORD WORKSPACE</span><h3>Keep community within reach.</h3><p>Open Discord as an embedded web workspace with back, forward, and reload controls. Its persistent session is distinct from Nexora Browser tabs.</p><ul><li><Check size={14}/> Dedicated Discord surface</li><li><Check size={14}/> Persistent, separate web session</li><li><Check size={14}/> Optional Rich Presence for coding activity</li></ul><small>Rich Presence requires the Discord desktop app and a local app ID. Presence shares labels—not file contents or full local paths.</small></article>
@@ -193,7 +193,7 @@ export default function FeaturesPage() {
       </section>
 
       <section id="efith" className="feature-guide-section container">
-        <SectionHeading eyebrow="EFITH / AI CODING AGENT" title={<>Choose your model.<br/><span>Stay in control.</span></>}>EFITH can answer questions about a workspace or act on it using tools. Its configuration makes the provider, model, conversation, and permission mode visible to you.</SectionHeading>
+        <SectionHeading eyebrow="EFITH / AI CODING AGENT" title={<>Configure EFITH for your workflow.</>}>Choose a provider and model, set tool permissions, and review proposed file changes before applying them.</SectionHeading>
         <FeatureBlock id="efith-agent" number="05" eyebrow="CHAT + AGENT WORKFLOWS" title="From a question to a reviewable change." kind="efith" description="Use EFITH for code questions and agent tasks. When it proposes an edit, inspect the diff before applying it. Tool actions can be approved as they happen or governed by the selected access mode." points={['Tools for listing, reading, searching, and editing project files, plus running commands','Review proposed file changes in a diff before accepting','Ask every time, workspace, and full-access permission modes','Workspace-scoped chat history, multiple conversations, and model selection','Linked GitHub Copilot sign-in or configured provider credentials']}/>
         <div className="provider-panel">
           <div><span className="provider-kicker"><Bot size={14}/> AI PROVIDERS</span><h3>Use the service that fits your setup.</h3><p>Provider access, API credentials, and available model lists depend on your account and configuration.</p></div>
@@ -205,7 +205,7 @@ export default function FeaturesPage() {
 
       <section className="onboarding-showcase">
         <div className="container">
-          <SectionHeading eyebrow="FIRST-RUN SETUP" title={<>Start with a workspace<br/><span>that feels like yours.</span></>}>These are captures of the real first-launch flow: welcome, theme selection, integrations, and optional GitHub sign-in. Preferences can be adjusted later in Settings.</SectionHeading>
+          <SectionHeading eyebrow="FIRST-RUN SETUP" title={<>Set up your workspace.</>}>Screenshots show the welcome flow, theme selection, integrations, and optional GitHub sign-in. You can change preferences later in Settings.</SectionHeading>
           <div className="onboarding-screenshot-grid">
             <figure><img src={siteUrl('screenshots/onboarding-welcome.png')} alt="Nexora Code first-run onboarding welcome step" loading="lazy"/><figcaption>01 · Welcome</figcaption></figure>
             <figure><img src={siteUrl('screenshots/onboarding-theme.png')} alt="Nexora Code onboarding theme selection step" loading="lazy"/><figcaption>02 · Choose a theme</figcaption></figure>
@@ -217,7 +217,7 @@ export default function FeaturesPage() {
 
       <section id="developer-tools" className="feature-guide-tools">
         <div className="container">
-          <SectionHeading eyebrow="PRODUCTIVITY + CONFIGURATION" title={<>Small tools that make<br/><span>the workspace yours.</span></>}>Quick commands, workspace checks, project task discovery, and detailed settings help you stay oriented without implying tools that are not actually bundled.</SectionHeading>
+          <SectionHeading eyebrow="SETTINGS AND UTILITIES" title={<>Settings, shortcuts, and project checks.</>}>Use Quick Open, keyboard shortcuts, project checks, and settings to manage your workspace.</SectionHeading>
           <div className="tool-feature-grid">
             <article><img className="tool-feature-screenshot" src={siteUrl('screenshots/quick-open.png')} alt="Actual Nexora Code Quick Open file picker" loading="lazy"/><span className="tool-feature-icon"><Search size={17}/></span><span className="feature-detail">PROJECT SCANNER + QUICK OPEN</span><h3>Find files, issues, and next steps.</h3><p>Search workspace files quickly. Run heuristic source checks on supported files, inspect findings by severity, and jump to their source locations. Optional actions include safe checks, dependency update/audit checks, and detected project test commands.</p><small>Scans are bounded and may be partial. Heuristic checks are not a guarantee that a project is vulnerability-free.</small></article>
             <article><span className="tool-feature-icon"><Command size={17}/></span><span className="feature-detail">COMMANDS + KEYBOARD</span><h3>Reach common actions quickly.</h3><p>Search and run commands with the Command Palette, open files with Quick Open, and use shortcuts for save, search, terminal, line navigation, image editing, and more.</p><small>Examples: Ctrl+Shift+P for commands, Ctrl+P for files, Ctrl+` for terminal, Ctrl+Shift+F for workspace search.</small></article>
@@ -229,7 +229,7 @@ export default function FeaturesPage() {
       </section>
 
       <section className="feature-guide-cta"><div className="container feature-cta-inner">
-        <span className="eyebrow"><span/> READY TO TAKE A CLOSER LOOK</span><h2>See Nexora Code<br/><span>in your own workflow.</span></h2>
+        <span className="eyebrow"><span/> DOWNLOADS</span><h2>Get Nexora Code.</h2>
         <p>Check the official release page for published builds and release notes. No public installer is currently listed there.</p>
         <div className="feature-guide-actions"><a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><Monitor size={16}/> Check official releases <ArrowUpRight size={14}/></a><a className="button-secondary" href={siteUrl('')}>Back to overview <ArrowRight size={14}/></a></div>
       </div></section>
