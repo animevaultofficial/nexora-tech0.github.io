@@ -100,7 +100,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .setup-card-icon.git { color: #f28b69; border-color: #573b32; background: #211815; }
 .setup-card-icon.node { color: #c5df7b; border-color: #48512c; background: #1b2013; }
 .setup-card-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 7px; color: #8e929d; font: 9px var(--mono); letter-spacing: .04em; }
-.setup-card-state { padding: 3px 6px; border: 1px solid #343741; border-radius: 4px; color: #b4b7c0; font: 9px var(--sans); letter-spacing: 0; }
+.setup-card-state { padding: 3px 6px; border: 1px solid #343741; border-radius: 4px; color: #b4b7c0; font-size: 9px; font-family: inherit; letter-spacing: 0; }
 .setup-card h3 { margin: 11px 0 8px; font-size: 16px; font-weight: 630; letter-spacing: -.025em; }
 .setup-card p { min-height: 85px; margin: 0 0 14px; color: #aeb1ba; font-size: 11px; line-height: 1.75; }
 .setup-card > small { color: #d49ab0; font-size: 10px; }
