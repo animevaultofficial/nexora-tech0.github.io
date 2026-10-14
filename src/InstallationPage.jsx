@@ -99,7 +99,7 @@ export default function InstallationPage() {
           </div>
           <div className="install-steps-grid">
             <article><span className="install-step-number">01</span><div className="install-step-icon"><ArrowDownToLine size={19}/></div><h3>Download Nexora Code</h3><p>Open the official GitHub Releases page and download a published Windows installer when one is available.</p><a href={RELEASES} target="_blank" rel="noreferrer">Official releases <ArrowUpRight size={13}/></a></article>
-            <article><span className="install-step-number">02</span><div className="install-step-icon"><Settings2 size={19}/></div><h3>Open Settings</h3><p>Choose which built-in apps you want visible, including Spotify controls and the Discord workspace.</p><span className="install-step-foot">Settings → Apps / Integrations</span></article>
+            <article><span className="install-step-number">02</span><div className="install-step-icon"><Settings2 size={19}/></div><h3>Open Settings</h3><p>Choose which built-in apps you want visible, including Spotify controls and the Discord workspace.</p><span className="install-step-foot">Settings → built-in app visibility</span></article>
             <article><span className="install-step-number">03</span><div className="install-step-icon"><Wrench size={19}/></div><h3>Check developer tools</h3><p>Scan for Git and Node.js first. Use the available install or PATH actions only when you need them.</p><span className="install-step-foot">Settings → Developer Tools</span></article>
           </div>
         </div>
