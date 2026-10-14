@@ -143,7 +143,7 @@ function FeaturesFooter() {
   return <footer className="site-footer">
     <div className="container footer-main">
       <div className="footer-brand-column"><FeatureBrand/><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
-      <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('efith/')}>EFITH</a><a href={siteUrl('tech-stack/')}>Tech stack</a></div>
+      <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('efith/')}>EFITH</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href={siteUrl('installation/')}>Installation</a></div>
       <div className="footer-links-group"><strong>PROJECT</strong><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12}/></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12}/></a></div>
     </div>
     <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Authentic IDE captures; integrations may require configuration.</span></div>
@@ -231,7 +231,7 @@ export default function FeaturesPage() {
       <section className="feature-guide-cta"><div className="container feature-cta-inner">
         <span className="eyebrow"><span/> DOWNLOADS</span><h2>Get Nexora Code.</h2>
         <p>Check the official release page for published builds and release notes. No public installer is currently listed there.</p>
-        <div className="feature-guide-actions"><a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><Monitor size={16}/> Check official releases <ArrowUpRight size={14}/></a><a className="button-secondary" href={siteUrl('')}>Back to overview <ArrowRight size={14}/></a></div>
+        <div className="feature-guide-actions"><a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><Monitor size={16}/> Check official releases <ArrowUpRight size={14}/></a><a className="button-secondary" href={siteUrl('installation/')}>Installation guide <ArrowRight size={14}/></a></div>
       </div></section>
     </main>
     <FeaturesFooter/>
