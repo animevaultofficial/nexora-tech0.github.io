@@ -9,7 +9,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
-        features: fileURLToPath(new URL('./features/index.html', import.meta.url))
+        features: fileURLToPath(new URL('./features/index.html', import.meta.url)),
+        techStack: fileURLToPath(new URL('./tech-stack/index.html', import.meta.url)),
+        efith: fileURLToPath(new URL('./efith/index.html', import.meta.url))
       }
     }
   }

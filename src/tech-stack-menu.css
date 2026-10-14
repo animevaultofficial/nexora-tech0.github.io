@@ -1,0 +1,43 @@
+.tech-stack-menu { position: relative; display: inline-flex; align-items: center; }
+.nav-links .tech-stack-trigger { display: inline-flex; min-height: 38px; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #b6bac4; font-size: 12px; cursor: pointer; transition: color .18s ease; }
+.nav-links .tech-stack-trigger:hover, .nav-links .tech-stack-trigger[aria-expanded="true"] { color: #fff; }
+.tech-stack-trigger > svg:first-child { color: #e198b2; }
+.tech-stack-chevron { transition: transform .18s ease; }
+.tech-stack-chevron.open { transform: rotate(180deg); }
+.tech-stack-popover { position: absolute; z-index: 50; top: calc(100% + 16px); left: 50%; width: min(700px, calc(100vw - 40px)); max-height: min(76vh, 650px); overflow: auto; padding: 16px; transform: translateX(-50%); border: 1px solid #393943; border-radius: 8px; background: #111319f7; box-shadow: 0 24px 70px #000b; color: #f1f0f4; backdrop-filter: blur(20px); }
+.tech-stack-popover-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.tech-stack-overline { color: #bc92a7; font: 8px var(--mono); letter-spacing: .1em; }
+.tech-stack-popover-head h2 { margin: 5px 0 0; font-size: 19px; font-weight: 620; letter-spacing: -.035em; }
+.tech-stack-count { padding: 6px 8px; border: 1px solid #493847; border-radius: 4px; background: #221922; color: #f0b2c6; font: 8px var(--mono); white-space: nowrap; }
+.tech-stack-summary { max-width: 620px; margin: 9px 0 14px; color: #a5a8b2; font-size: 9px; line-height: 1.65; }
+.tech-stack-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.tech-stack-group { min-width: 0; padding: 10px; border: 1px solid #2e3039; border-radius: 5px; background: #15171d; }
+.tech-stack-group h3 { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; color: #e2dfe6; font-size: 9px; font-weight: 630; }
+.tech-stack-group h3 > span { color: #8c909a; font: 8px var(--mono); }
+.tech-stack-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+.tech-stack-item { display: grid; min-width: 0; grid-template-columns: 20px minmax(0, 1fr); align-items: center; gap: 2px 6px; padding: 6px; border-radius: 4px; background: #1b1d24; }
+.tech-stack-item:hover { background: #23232c; }
+.tech-stack-icon { display: grid; grid-row: span 2; width: 20px; height: 20px; place-items: center; color: #d6d4dd; }
+.tech-stack-name { display: flex; min-width: 0; align-items: center; gap: 4px; overflow: hidden; color: #d7d7de; font-size: 8px; font-weight: 570; text-overflow: ellipsis; white-space: nowrap; }
+.tech-stack-name > i { overflow: hidden; padding: 2px 3px; border-radius: 3px; background: #1c3325; color: #9cdbab; font-size: 6px; font-style: normal; text-overflow: ellipsis; }
+.tech-stack-item code { overflow: hidden; color: #858994; font: 7px var(--mono); text-overflow: ellipsis; white-space: nowrap; }
+.tech-stack-popover-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; padding-top: 11px; border-top: 1px solid #2c2e36; color: #9ca0aa; font-size: 8px; }
+.tech-stack-popover-foot > span { display: inline-flex; align-items: center; gap: 5px; }
+.tech-stack-popover-foot > span svg { color: #c489a4; }
+.tech-stack-popover-foot a { color: #e29ab4; font-size: 8px; font-weight: 620; }
+.tech-stack-popover-foot a:hover { color: #ffc0d2; }
+
+@media (max-width: 980px) and (min-width: 721px) {
+  .nav-links { gap: 13px; }
+  .nav-links .tech-stack-trigger { font-size: 11px; }
+}
+@media (max-width: 720px) {
+  .nav-links > .tech-stack-menu { display: block; }
+  .nav-links .tech-stack-trigger { min-height: 43px; width: 100%; padding: 0 3px; }
+  .tech-stack-popover { position: fixed; top: 142px; left: 20px; width: calc(100vw - 40px); max-height: calc(100vh - 164px); padding: 12px; transform: none; }
+}
+@media (max-width: 480px) {
+  .tech-stack-groups { grid-template-columns: 1fr; }
+  .tech-stack-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tech-stack-group { padding: 8px; }
+}

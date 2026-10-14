@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import FeaturesPage from './FeaturesPage.jsx';
+import TechStackMenu from './TechStackMenu.jsx';
+import TechStackPage from './TechStackPage.jsx';
+import EfithPage from './EfithPage.jsx';
 import {
   ArrowDownToLine,
   ArrowRight,
@@ -62,7 +65,7 @@ const featureCards = [
     detail: 'SOURCE CONTROL',
   },
   {
-    icon: Bot,
+    icon: EfithMark,
     title: 'EFITH, with controls',
     description: 'Ask questions about your work, review proposed file edits, and choose how much access the agent gets.',
     detail: 'AI CODING AGENT',
@@ -76,6 +79,10 @@ function Brand({ footer = false }) {
       <span>NEXORA <span className="brand-muted">CODE</span></span>
     </a>
   );
+}
+
+function EfithMark({ size = 19 }) {
+  return <img className="efith-product-mark" src="/nexora-mark.svg" width={size} height={size} alt="EFITH"/>;
 }
 
 function CodeLine({ number, children }) {
@@ -176,10 +183,10 @@ function ProductPreview() {
             <div className="editor-footer"><span className="cursor-dot" /> Select a file to preview its contents</div>
           </section>
           <aside className="efith-preview" aria-label="EFITH assistant preview">
-            <div className="efith-preview-title"><span><Sparkles size={14} /> EFITH</span><span className="efith-state">READY</span></div>
-            <div className="efith-preview-intro"><div className="efith-symbol"><Sparkles size={16} /></div><strong>Work through the next step.</strong><p>Ask about your code or describe what you want to change.</p></div>
+            <div className="efith-preview-title"><span><EfithMark size={16}/> EFITH</span><span className="efith-state">READY</span></div>
+            <div className="efith-preview-intro"><div className="efith-symbol"><EfithMark size={21}/></div><strong>Work through the next step.</strong><p>Ask about your code or describe what you want to change.</p></div>
             <div className="efith-example"><span>YOU</span><p>Can you explain this component?</p></div>
-            <div className="efith-response"><span><Bot size={13} /> EFITH</span><p>I can inspect the selected file and walk through its structure.</p></div>
+            <div className="efith-response"><span><EfithMark size={13}/> EFITH</span><p>I can inspect the selected file and walk through its structure.</p></div>
             <div className="efith-compose">Message EFITH… <ArrowRight size={13} /></div>
             <div className="efith-permission"><ShieldCheck size={12} /> Tool access follows your permission setting</div>
           </aside>
@@ -189,6 +196,19 @@ function ProductPreview() {
       <p className="preview-note">Illustrative interface preview. Product features and availability may vary by release.</p>
     </section>
   );
+}
+
+function RealProductPreview() {
+  return <section className="product-preview product-real-preview" aria-label="Actual Nexora Code IDE screenshot">
+    <div className="preview-caption">
+      <span><i className="live-indicator"/> CAPTURED FROM NEXORA CODE</span>
+      <span>REAL WINDOWS DESKTOP IDE</span>
+    </div>
+    <figure className="product-real-figure">
+      <img src="/screenshots/ide-overview.png" alt="Actual Nexora Code desktop IDE with Explorer, Spotify titlebar controller, editor workspace, and integrated terminal" fetchPriority="high"/>
+      <figcaption>This is a screenshot of the running Nexora Code IDE—not a reconstructed interface.</figcaption>
+    </figure>
+  </section>;
 }
 
 function FeatureCard({ icon: Icon, title, description, detail }) {
@@ -206,7 +226,10 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
-  if (window.location.pathname.replace(/\/+$/, '') === '/features') return <FeaturesPage />;
+  const route = window.location.pathname.replace(/\/+$/, '') || '/';
+  if (route === '/features') return <FeaturesPage />;
+  if (route === '/tech-stack') return <TechStackPage />;
+  if (route === '/efith') return <EfithPage />;
 
   return (
     <div id="top" className="site-shell">
@@ -230,7 +253,8 @@ function App() {
           </button>
           <div id="primary-navigation" className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
             <a href="/features/" onClick={closeMenu}>Features</a>
-            <a href="#efith" onClick={closeMenu}>EFITH</a>
+            <TechStackMenu/>
+            <a href="/efith/" onClick={closeMenu}>EFITH</a>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
             <a className="nav-download" href={RELEASES} target="_blank" rel="noreferrer">View releases <ArrowUpRight size={14} /></a>
@@ -261,7 +285,7 @@ function App() {
         </section>
 
         <div id="product" className="container preview-wrap">
-          <ProductPreview />
+          <RealProductPreview />
         </div>
 
         <section id="features" className="features-section section-pad">
@@ -318,7 +342,7 @@ function App() {
                 <li><Check size={15} /> Set the agent's tool permissions in its settings.</li>
                 <li><Check size={15} /> Return to saved conversations with chat history.</li>
               </ul>
-              <a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Explore Nexora Code on GitHub <ExternalLink size={14} /></a>
+              <div className="hero-actions"><a className="text-link" href="/efith/">Explore EFITH in detail <ArrowRight size={14}/></a><a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Nexora Code on GitHub <ExternalLink size={14} /></a></div>
             </div>
             <div className="efith-panel">
               <div className="efith-panel-header"><span className="efith-panel-brand"><span className="efith-panel-mark"><Sparkles size={16} /></span><span><strong>EFITH</strong><small>CODING AGENT</small></span></span><span className="mode-pill">CHAT <ChevronDown size={12} /></span></div>
@@ -371,7 +395,7 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-main">
           <div className="footer-brand-column"><Brand footer /><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
-          <div className="footer-links-group"><strong>PRODUCT</strong><a href="/features/">Features</a><a href="#efith">EFITH</a><a href="#download">Downloads</a></div>
+          <div className="footer-links-group"><strong>PRODUCT</strong><a href="/features/">Features</a><a href="/efith/">EFITH</a><a href="/tech-stack/">Tech stack</a><a href="#download">Downloads</a></div>
           <div className="footer-links-group"><strong>PROJECT</strong><a href={REPOSITORY} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={12} /></a><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12} /></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12} /></a></div>
         </div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Made for the work ahead.</span></div>
