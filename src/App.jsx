@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { siteUrl, siteRoute } from './site-url.js';
 import './product-first.css';
+import SimpleIcon from './SimpleIcon.jsx';
+import InstallationPage from './InstallationPage.jsx';
+import { siDiscord, siGit, siNodedotjs, siSpotify } from 'simple-icons';
 import FeaturesPage from './FeaturesPage.jsx';
 import TechStackPage from './TechStackPage.jsx';
 import EfithPage from './EfithPage.jsx';
@@ -12,6 +15,7 @@ import {
   Braces,
   Check,
   ChevronDown,
+  Code2,
   ExternalLink,
   FileCode2,
   FolderOpen,
@@ -106,6 +110,7 @@ function App() {
   if (route === '/features') return <FeaturesPage />;
   if (route === '/tech-stack') return <TechStackPage />;
   if (route === '/efith') return <EfithPage />;
+  if (route === '/installation') return <InstallationPage />;
 
   return (
     <div id="top" className="site-shell">
@@ -130,6 +135,7 @@ function App() {
           <div id="primary-navigation" className={`nav-links${menuOpen ? ' nav-open' : ''}`}>
             <a href={siteUrl('features/')} onClick={closeMenu}>Features</a>
             <a href={siteUrl('tech-stack/')}>Tech stack</a>
+            <a href={siteUrl('installation/')} onClick={closeMenu}>Installation</a>
             <a href={siteUrl('efith/')} onClick={closeMenu}>EFITH</a>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
@@ -206,31 +212,19 @@ function App() {
           </div>
         </section>
 
-        <section id="efith" className="efith-section">
-          <div className="container efith-layout">
-            <div className="efith-copy">
-              <div className="eyebrow"><span /> MEET EFITH</div>
-              <h2>An AI coding agent for your project.</h2>
-              <p>EFITH can answer questions about your code and propose edits. Review changes before applying them.</p>
-              <ul className="efith-points">
-                <li><Check size={15} /> Choose a supported AI provider and model.</li>
-                <li><Check size={15} /> Review proposed file changes before applying them.</li>
-                <li><Check size={15} /> Set the agent's tool permissions in its settings.</li>
-                <li><Check size={15} /> Return to saved conversations with chat history.</li>
-              </ul>
-              <div className="hero-actions"><a className="text-link" href={siteUrl('efith/')}>Explore EFITH in detail <ArrowRight size={14}/></a><a className="text-link" href={REPOSITORY} target="_blank" rel="noreferrer">Nexora Code on GitHub <ExternalLink size={14} /></a></div>
+        <section id="setup" className="setup-section">
+          <div className="container">
+            <div className="section-heading">
+              <div><div className="eyebrow"><span /> OPTIONAL COMPONENTS</div><h2>Only install what you need.</h2></div>
+              <p>Choose your setup after installing Nexora Code. Built-in apps can be shown or hidden in Settings; developer tools can be checked before you add another installation.</p>
             </div>
-            <div className="efith-panel">
-              <div className="efith-panel-header"><span className="efith-panel-brand"><span className="efith-panel-mark"><Code2 size={16} /></span><span><strong>EFITH</strong><small>CODING AGENT</small></span></span><span className="mode-pill">CHAT <ChevronDown size={12} /></span></div>
-              <div className="efith-panel-content">
-                <div className="chat-date">CONVERSATION / CURRENT WORKSPACE</div>
-                <div className="chat-user"><span>YOU</span><p>Help me understand where this component gets its data.</p></div>
-                <div className="chat-assistant"><span className="assistant-avatar"><Bot size={14} /></span><div><strong>EFITH</strong><p>I can trace the component's props and related project files. Would you like an explanation or a suggested change?</p><span className="review-example"><FileCode2 size={14} /> Review proposed changes</span></div></div>
-              </div>
-              <div className="permission-note"><ShieldCheck size={14} /> Permissions are configurable in EFITH settings</div>
-              <div className="chat-composer" aria-hidden="true"><span>Ask EFITH about your workspace…</span><span className="composer-send"><ArrowRight size={14} /></span></div>
-              <p className="efith-disclaimer">Illustrative example. Provider access and model availability depend on your configuration.</p>
+            <div className="setup-card-grid">
+              <article className="setup-card"><div className="setup-card-icon spotify"><SimpleIcon icon={siSpotify} title="Spotify" size={22}/></div><div className="setup-card-top"><span>INTEGRATION</span><span className="setup-card-state">Optional</span></div><h3>Spotify controls</h3><p>Titlebar playback controls and a full Spotify sidebar when you want music beside your code.</p><small>Configure in Settings</small></article>
+              <article className="setup-card"><div className="setup-card-icon discord"><SimpleIcon icon={siDiscord} title="Discord" size={22}/></div><div className="setup-card-top"><span>INTEGRATION</span><span className="setup-card-state">Optional</span></div><h3>Discord</h3><p>Keep your Discord workspace in reach without taking over your editor.</p><small>Configure in Settings</small></article>
+              <article className="setup-card"><div className="setup-card-icon git"><SimpleIcon icon={siGit} title="Git" size={22}/></div><div className="setup-card-top"><span>DEVELOPER TOOL</span><span className="setup-card-state">Check first</span></div><h3>Git</h3><p>Check whether Git is already installed and available before installing it again.</p><small>Settings → Developer Tools</small></article>
+              <article className="setup-card"><div className="setup-card-icon node"><SimpleIcon icon={siNodedotjs} title="Node.js" size={22}/></div><div className="setup-card-top"><span>DEVELOPER TOOL</span><span className="setup-card-state">As needed</span></div><h3>Node.js</h3><p>Use Node.js and npm for JavaScript projects when your workflow requires them.</p><small>Settings → Developer Tools</small></article>
             </div>
+            <div className="setup-section-footer"><span><ShieldCheck size={16}/> Existing installations should be detected before adding another copy.</span><a className="button-secondary" href={siteUrl('installation/')}>Installation guide <ArrowRight size={14}/></a></div>
           </div>
         </section>
 
