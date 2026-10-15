@@ -68,3 +68,29 @@
   .install-component-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
   .install-component-heading > span { font-size: 9px; }
 }
+
+
+/* Screenshot-led setup guide */
+.install-themes-section { padding: 72px 0; border-top: 1px solid #262932; background: #0d0e12; }
+.install-theme-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+.install-theme-card { min-width: 0; overflow: hidden; border: 1px solid #30333b; border-radius: 8px; background: #121419; }
+.install-theme-image, .install-process-image { position: relative; overflow: hidden; background: #0a0b0e; }
+.install-theme-image { aspect-ratio: 16 / 10; border-bottom: 1px solid #30333b; }
+.install-theme-image img, .install-process-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.install-theme-image > span { position: absolute; right: 10px; bottom: 10px; padding: 5px 7px; border: 1px solid #48404a; border-radius: 4px; background: #101116e8; color: #e9cbd6; font: 8px var(--mono); letter-spacing: .04em; }
+.install-theme-copy { padding: 17px; }
+.install-theme-copy h3, .install-process-copy h3 { margin: 0 0 7px; color: #f0edf2; font-size: 15px; font-weight: 630; letter-spacing: -.02em; }
+.install-theme-copy p, .install-process-copy p { margin: 0; color: #aeb1ba; font-size: 11px; line-height: 1.8; }
+.install-theme-note { display: flex; align-items: flex-start; gap: 11px; margin-top: 17px; padding: 14px 15px; border: 1px solid #34303a; border-radius: 7px; background: #151318; color: #d69bb1; }
+.install-theme-note svg { flex: 0 0 auto; margin-top: 1px; }
+.install-theme-note p { margin: 0; color: #aaa7b1; font-size: 10px; line-height: 1.8; }
+.install-theme-note strong { color: #e6dce3; font-weight: 620; }
+.install-process-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+.install-process-card { min-width: 0; overflow: hidden; border: 1px solid #30333b; border-radius: 8px; background: #121419; }
+.install-process-image { aspect-ratio: 16 / 10; border-bottom: 1px solid #30333b; }
+.install-process-number { position: absolute; top: 10px; left: 10px; display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid #6a4655; border-radius: 6px; background: #191219eF; color: #f0abc2; font: 10px var(--mono); }
+.install-process-copy { padding: 17px; }
+.install-process-copy > a, .install-process-copy > .install-step-foot { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: #e6a0b6; font-size: 10px; }
+.install-process-copy > .install-step-foot { color: #a2c9a9; }
+@media (max-width: 850px) { .install-theme-grid, .install-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .install-theme-card:last-child, .install-process-card:last-child { grid-column: 1 / -1; } }
+@media (max-width: 600px) { .install-themes-section { padding: 50px 0; } .install-theme-grid, .install-process-grid { grid-template-columns: 1fr; gap: 10px; } .install-theme-card:last-child, .install-process-card:last-child { grid-column: auto; } .install-theme-copy, .install-process-copy { padding: 15px; } }
