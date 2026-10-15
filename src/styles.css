@@ -37,8 +37,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--pink-soft); out
 .announcement-mark { display: inline-flex; color: var(--pink-soft); }
 .announcement a { display: inline-flex; align-items: center; gap: 5px; margin-left: 5px; color: #ff8daf; font-weight: 650; }
 
-.site-header { position: sticky; z-index: 20; top: 12px; width: min(1240px, calc(100% - 40px)); margin: 12px auto 0; border: 1px solid #ffffff17; border-radius: 20px; background: #101116eF; box-shadow: 0 12px 36px #0005, inset 0 1px 0 #ffffff08; backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); transition: border-color .22s ease, background-color .22s ease, box-shadow .22s ease; }
-.site-header:hover { border-color: #ffffff25; box-shadow: 0 14px 42px #0006, inset 0 1px 0 #ffffff0a; }
+.site-header { position: sticky; isolation: isolate; z-index: 20; top: 12px; width: min(1240px, calc(100% - 40px)); margin: 12px auto 0; border: 1px solid #ffffff29; border-radius: 22px; background: linear-gradient(125deg, #ffffff12 0%, #ffffff04 32%, #ff4b8610 74%, #ffffff08 100%), #0e0d13a8; box-shadow: 0 18px 48px #0007, 0 2px 12px #0004, inset 0 1px 0 #ffffff28, inset 0 -1px 0 #ffffff08; backdrop-filter: blur(30px) saturate(175%); -webkit-backdrop-filter: blur(30px) saturate(175%); transition: border-color .22s ease, background-color .22s ease, box-shadow .22s ease, transform .22s ease; }
+.site-header::before { content: ""; position: absolute; z-index: 0; inset: 0; border-radius: inherit; background: linear-gradient(110deg, #ffffff0b, transparent 28%, transparent 68%, #ff83ab0a); pointer-events: none; }
+.site-header:hover { border-color: #ffffff40; box-shadow: 0 20px 54px #0008, 0 2px 14px #ff4b860a, inset 0 1px 0 #ffffff32, inset 0 -1px 0 #ffffff0b; }
+.site-header .nav { position: relative; z-index: 1; }
 .nav { display: flex; width: 100%; height: 72px; align-items: center; justify-content: space-between; padding: 0 22px; }
 .brand { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 10px; color: var(--text); font-size: 12px; font-weight: 780; letter-spacing: .12em; white-space: nowrap; }
 .brand img { display: block; width: 34px; height: 34px; }
@@ -49,7 +51,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--pink-soft); out
 .nav-links > a:nth-last-child(2) { color: #e1e2e7; }
 .nav-links > .nav-download { padding: 10px 14px; border: 1px solid #4a3b48; border-radius: 999px; background: #17141a; color: #f8eaf0; font-weight: 650; }
 .nav-links > .nav-download:hover { border-color: #9d506c; background: #21171e; }
-.mobile-menu { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-raised); }
+.mobile-menu { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #ffffff20; border-radius: 12px; background: #ffffff09; box-shadow: inset 0 1px 0 #ffffff10; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
 
 .hero { display: grid; min-height: 498px; grid-template-columns: minmax(0, 1.55fr) minmax(210px, .45fr); align-items: center; gap: 76px; padding-top: 58px; padding-bottom: 57px; }
 .hero-copy { max-width: 790px; }
@@ -255,7 +257,7 @@ h1 span, h2 span { color: var(--pink-soft); }
   .announcement { justify-content: flex-start; padding: 7px 20px; font-size: 10px; }
   .announcement a { margin-left: auto; white-space: nowrap; }
   .mobile-menu { display: inline-flex; order: 2; }
-  .nav-links { position: absolute; top: calc(100% + 8px); right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 16px; border: 1px solid #ffffff17; border-radius: 16px; background: #101116f7; box-shadow: 0 16px 28px #0008; backdrop-filter: blur(20px); }
+  .nav-links { position: absolute; top: calc(100% + 8px); right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 16px; border: 1px solid #ffffff26; border-radius: 18px; background: linear-gradient(135deg, #ffffff0d, #ff4b8608), #111017c9; box-shadow: 0 18px 36px #0008, inset 0 1px 0 #ffffff20; backdrop-filter: blur(28px) saturate(170%); -webkit-backdrop-filter: blur(28px) saturate(170%); }
   .nav-links.nav-open { display: flex; }
   .nav-links > a { min-height: 43px; padding: 0 3px; }
   .nav-links > .nav-download { justify-content: center; margin-top: 7px; }
