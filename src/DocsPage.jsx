@@ -5,7 +5,7 @@ import SiteFooter from './SiteFooter.jsx';
 import './docs-page.css';
 
 const REPOSITORY = 'https://github.com/animevaultofficial/Nexora-Code';
-const RELEASES = `${REPOSITORY}/releases';
+const RELEASES = `${REPOSITORY}/releases`;
 
 const guideSections = [
   {
