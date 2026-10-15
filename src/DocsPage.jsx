@@ -97,7 +97,7 @@ export default function DocsPage() {
         <div className="container docs-layout">
           <aside className="docs-toc">
             <span className="docs-toc-label">ON THIS PAGE</span>
-            {guideSections.map(item => <a key={item.id} href={`#${item.id}`}><span>{item.number}</span>{item.title}</a>)}
+            {guideSections.map(item => <a key={item.id} href={'#' + item.id}><span>{item.number}</span>{item.title}</a>)}
             <div className="docs-toc-divider"/>
             <a href={siteUrl('terms/')}><span><FileText size={13}/></span>Terms &amp; Conditions</a>
             <a href={siteUrl('privacy-policy/')}><span><ShieldCheck size={13}/></span>Privacy Policy</a>
