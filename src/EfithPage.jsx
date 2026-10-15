@@ -20,8 +20,8 @@ export default function EfithPage() {
     <main>
       <section className="efith-page-hero container">
         <div className="eyebrow efith-brand-lockup"><img src={siteUrl('nexora-mark.svg')} alt=""/> NEXORA CODE / EFITH AI</div>
-        <h1>EFITH coding agent</h1>
-        <p>EFITH is Nexora Code's AI coding agent. Ask questions about a project, explore workspace files with tools, and review proposed edits before they are applied. Choose the provider, model, and permission level that fit the task.</p>
+        <h1>Meet EFITH, your coding agent.</h1>
+        <p>EFITH brings AI-assisted coding into Nexora Code. Ask questions about your project, investigate workspace files, and review proposed changes before they are applied. Choose the provider, model, and access level that suit the task.</p>
         <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all IDE features <ArrowRight size={14}/></a><a className="button-secondary" href={REPOSITORY} target="_blank" rel="noreferrer">View Nexora Code source <ArrowUpRight size={14}/></a></div>
       </section>
 
@@ -29,8 +29,8 @@ export default function EfithPage() {
         <div className="container efith-workflow-layout">
           <div className="efith-workflow-copy">
             <span className="efith-page-kicker"><Sparkles size={14}/> CHAT + AGENT WORKFLOWS</span>
-            <h2>Ask questions. Review changes.</h2>
-            <p>EFITH can explain code in the current project or use tools to investigate and make a proposed change. You decide what gets applied and how much access the agent receives.</p>
+            <h2>Understand first. Change with confidence.</h2>
+            <p>Use EFITH to explore code and prepare focused changes. You stay in control of proposed edits and the permission mode used for workspace actions.</p>
             <ul className="efith-page-points">
               <li><Check size={15}/> Ask questions and keep conversations with workspace-scoped history.</li>
               <li><Check size={15}/> List, read, and search project files as part of an agent task.</li>
@@ -48,7 +48,7 @@ export default function EfithPage() {
       <section className="efith-capabilities-section container">
         <div className="feature-guide-heading">
           <div><div className="eyebrow"><span/> HOW EFITH WORKS</div><h2>Tools and permissions</h2></div>
-          <p>EFITH connects an AI conversation to a small set of explicit workspace actions. File changes are presented for review instead of being silently written behind your back.</p>
+          <p>EFITH connects a conversation to explicit workspace tools. Review proposed file changes and choose the permission level before allowing broader actions.</p>
         </div>
         <div className="efith-capability-grid">
           <article><span><FolderSearch size={17}/></span><small>01 / EXPLORE</small><h3>Understand the project</h3><p>List workspace files, read relevant source, and search for symbols or text to ground a response in the open project.</p></article>
