@@ -240,7 +240,7 @@ function App() {
             <div className="about-copy">
               <div className="eyebrow"><span /> ABOUT NEXORA</div>
               <h2>About Nexora.</h2>
-              <p>Nexora is a software brand founded by Ishah Mushak. Nexora Code is its Windows IDE, and EFITH is its coding agent.</p>
+              <p>Nexora CO is founded and led by Ishah Mushak, Founder and CEO. Nexora Code is a product under Nexora CO, alongside EFITH, its AI-assisted coding agent.</p>
               <div className="about-links">
                 <a href={ORGANIZATION} target="_blank" rel="noreferrer"><Github size={15} /> Nexora on GitHub <ArrowUpRight size={13} /></a>
                 <a href={REPOSITORY} target="_blank" rel="noreferrer"><Braces size={15} /> Nexora Code repository <ArrowUpRight size={13} /></a>
