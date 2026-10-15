@@ -1,0 +1,30 @@
+/* Motion should make the product feel responsive, never distract from the content. */
+:root { --motion-ease: cubic-bezier(.2, .7, .2, 1); }
+html { scroll-behavior: smooth; }
+.site-header { transition: border-color .22s ease, background-color .22s ease; }
+.nav-links > a, .brand, .announcement a, .about-links a, .footer-links-group a { transition: color .2s ease, opacity .2s ease, transform .2s var(--motion-ease); }
+.nav-links > a:hover { transform: translateY(-1px); }
+.brand img { transition: transform .35s var(--motion-ease), filter .35s ease; }
+.brand:hover img { transform: rotate(-5deg) scale(1.06); filter: drop-shadow(0 0 10px #e96b9140); }
+.button-primary, .button-secondary, .nav-download { transition: transform .2s var(--motion-ease), border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.button-primary:hover { transform: translateY(-2px); box-shadow: 0 9px 28px #e96b9125; }
+.button-primary:active, .button-secondary:active, .nav-download:active { transform: translateY(0) scale(.985); }
+.feature-icon, .step-icon, .install-step-icon, .install-component-icon, .setup-card-icon, .language-logo { transition: transform .24s var(--motion-ease), border-color .24s ease, background-color .24s ease; }
+.feature-card:hover .feature-icon, .workflow-step:hover .step-icon, .install-component:hover .install-component-icon, .install-steps-grid article:hover .install-step-icon, .setup-card:hover .setup-card-icon { transform: translateY(-2px) scale(1.04); }
+.feature-card, .setup-card, .install-component, .install-steps-grid article, .language-card, .efith-provider-card, .efith-capability-grid article, .feature-app-card, .install-theme-card, .install-process-card { transition: border-color .22s ease, background-color .22s ease, transform .25s var(--motion-ease); }
+.feature-card:hover, .setup-card:hover, .install-component:hover, .install-steps-grid article:hover, .efith-provider-card:hover, .efith-capability-grid article:hover, .feature-app-card:hover, .install-theme-card:hover, .install-process-card:hover { border-color: #51404b; }
+.product-real-figure, .feature-block-capture, .screenshot-gallery-view, .island-real-capture, .install-theme-image, .install-process-image { overflow: hidden; }
+.product-real-figure img, .feature-block-capture img, .screenshot-gallery-view img, .install-theme-image img, .install-process-image img { transition: transform .55s var(--motion-ease), filter .35s ease; }
+.product-real-figure:hover img, .install-theme-card:hover .install-theme-image img, .install-process-card:hover .install-process-image img { transform: scale(1.018); }
+.motion-reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s var(--motion-ease), transform .65s var(--motion-ease); transition-delay: var(--reveal-delay, 0ms); }
+.motion-reveal.motion-visible { opacity: 1; transform: translateY(0); }
+.eyebrow > span:first-child { transform-origin: left center; animation: eyebrow-line-in .7s var(--motion-ease) both; }
+.live-indicator { animation: status-pulse 2.2s ease-in-out infinite; }
+.install-availability svg, .availability > span { animation: status-pulse 2.8s ease-in-out infinite; }
+@keyframes eyebrow-line-in { from { transform: scaleX(.2); opacity: .4; } to { transform: scaleX(1); opacity: 1; } }
+@keyframes status-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .motion-reveal { opacity: 1 !important; transform: none !important; }
+}
