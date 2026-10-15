@@ -7,6 +7,9 @@ import { siDiscord, siGit, siNodedotjs, siSpotify } from 'simple-icons';
 import FeaturesPage from './FeaturesPage.jsx';
 import TechStackPage from './TechStackPage.jsx';
 import EfithPage from './EfithPage.jsx';
+import AboutPage from './AboutPage.jsx';
+import LegalPage from './LegalPage.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import {
   ArrowDownToLine,
   ArrowRight,
@@ -111,6 +114,9 @@ function App() {
   if (route === '/tech-stack') return <TechStackPage />;
   if (route === '/efith') return <EfithPage />;
   if (route === '/installation') return <InstallationPage />;
+  if (route === '/about') return <AboutPage />;
+  if (route === '/terms') return <LegalPage page="terms" />;
+  if (route === '/privacy-policy') return <LegalPage page="privacy" />;
 
   return (
     <div id="top" className="site-shell">
@@ -262,14 +268,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-main">
-          <div className="footer-brand-column"><Brand footer /><p>A Windows IDE by Nexora.</p></div>
-          <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('features/')}>Features</a><a href={siteUrl('efith/')}>EFITH</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href={siteUrl('installation/')}>Installation</a><a href="#download">Downloads</a></div>
-          <div className="footer-links-group"><strong>PROJECT</strong><a href={REPOSITORY} target="_blank" rel="noreferrer">Source code <ArrowUpRight size={12} /></a><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12} /></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12} /></a></div>
-        </div>
-        <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Made for the work ahead.</span></div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
