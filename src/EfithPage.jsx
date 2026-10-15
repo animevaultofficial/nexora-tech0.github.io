@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight, Check, ChevronDown, FileCode2, FolderSearch, Github, History, KeyRound, MessageSquare, Search, ShieldAlert, ShieldCheck, Sparkles, Terminal } from 'lucide-react';
 import { siteUrl } from './site-url.js';
 import SiteHeader from './SiteHeader.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import ProviderMark from './ProviderMark.jsx';
 import { aiProviders } from './provider-data.js';
 import './efith-page.css';
@@ -99,6 +100,6 @@ export default function EfithPage() {
         <div className="efith-page-actions"><a className="button-primary" href={siteUrl('features/')}>Explore all features <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('tech-stack/')}>Explore language support <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
-    <footer className="site-footer"><div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><a href={REPOSITORY} target="_blank" rel="noreferrer">View the source on GitHub <ArrowUpRight size={12}/></a></div></footer>
+    <SiteFooter />
   </div>;
 }
