@@ -94,3 +94,6 @@
 .install-process-copy > .install-step-foot { color: #a2c9a9; }
 @media (max-width: 850px) { .install-theme-grid, .install-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .install-theme-card:last-child, .install-process-card:last-child { grid-column: 1 / -1; } }
 @media (max-width: 600px) { .install-themes-section { padding: 50px 0; } .install-theme-grid, .install-process-grid { grid-template-columns: 1fr; gap: 10px; } .install-theme-card:last-child, .install-process-card:last-child { grid-column: auto; } .install-theme-copy, .install-process-copy { padding: 15px; } }
+
+/* Keep the full product UI visible in documentation captures. */
+.install-theme-image img, .install-process-image img { object-fit: contain; }
