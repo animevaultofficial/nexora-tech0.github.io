@@ -101,7 +101,7 @@ function InteractiveIdePreview() {
   return <section className="live-ide-showcase" id="live-preview" aria-labelledby="live-ide-title">
     <div className="container">
       <SectionHeading titleId="live-ide-title" eyebrow="EXPLORE THE REAL PRODUCT" title={<>Nexora Code,<br/><span>in the workspace.</span></>}>
-        Switch between authentic captures of the IDE. These are real product screens, not source listings or invented interface mockups.
+        Explore authentic captures from the running IDE. Every image is a product screenshot, so you can see the actual interface before you install or configure anything.
       </SectionHeading>
       <div className="live-ide-frame">
         <div className="live-ide-tabs" role="tablist" aria-label="Nexora Code preview screens">
@@ -156,8 +156,8 @@ export default function FeaturesPage() {
     <main>
       <section className="feature-guide-hero container">
         <div className="eyebrow"><span/> NEXORA CODE / FEATURE GUIDE</div>
-        <h1>Nexora Code features</h1>
-        <p>See the current interface and features. Some integrations require a separate account or local configuration.</p>
+        <h1>Everything around your code.</h1>
+        <p>Take a closer look at the real Nexora Code workspace—from editing and terminal work to optional integrations and EFITH. Some features need their own account or local setup.</p>
         <div className="feature-guide-actions"><a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><ArrowDownToLine size={16}/> Check Windows releases <ArrowUpRight size={14}/></a><a className="button-secondary" href={siteUrl('')}>Back to overview <ArrowRight size={15}/></a></div>
         <div className="feature-guide-index"><a href="#editor"><Code2 size={14}/> Editor</a><a href="#music"><Music2 size={14}/> Spotify</a><a href="#apps"><Layers size={14}/> Built-in apps</a><a href="#efith"><Bot size={14}/> EFITH</a><a href="#developer-tools"><Settings2 size={14}/> Developer tools</a><a href="#live-preview"><Monitor size={14}/> Live preview</a><a href="#screenshots"><Camera size={14}/> Screenshots</a></div>
       </section>
@@ -167,14 +167,14 @@ export default function FeaturesPage() {
 
       <section id="music" className="island-section">
         <div className="container">
-          <SectionHeading eyebrow="SPOTIFY CONTROLS" title={<>Spotify controls in the titlebar.</>}>The titlebar player shows the current track and provides quick playback controls. More controls are available in the Spotify sidebar.</SectionHeading>
+          <SectionHeading eyebrow="SPOTIFY CONTROLS" title={<>Spotify controls in the titlebar.</>}>Keep your current track and essential playback controls within reach. When you need more, open the Spotify sidebar without giving up the editor as your main workspace.</SectionHeading>
           <RealIslandPreview/>
           <div className="island-detail-strip"><span><SimpleIcon icon={siSpotify} title="Spotify" size={16}/><b>Spotify Desktop</b><small>Windows media controls</small></span><span><Globe size={16}/><b>Spotify Web</b><small>Built-in browser session</small></span><span><Volume2 size={16}/><b>Quick controls</b><small>Seek, repeat, volume</small></span></div>
         </div>
       </section>
 
       <section id="editor" className="feature-guide-section container">
-        <SectionHeading eyebrow="EDITOR AND WORKSPACE" title={<>Edit files, run commands, review changes.</>}>Open files, edit code, use a terminal, inspect changes, and keep documentation nearby.</SectionHeading>
+        <SectionHeading eyebrow="EDITOR AND WORKSPACE" title={<>Edit files, run commands, review changes.</>}>Open a project, work across files, run commands, and review changes without losing the context of the workspace.</SectionHeading>
         <FeatureBlock id="editing" number="01" eyebrow="EDITOR + EXPLORER" title="A project workspace you can shape." kind="editor" description="Open a folder into a Monaco-powered editor and a live project Explorer. Keep files in tabs, compare work side by side, and jump straight to a file or command without leaving the keyboard." points={['Monaco editing with syntax highlighting and editor-level JavaScript/TypeScript diagnostics','File tree, create/rename/delete, quick open, and search across workspace files','Multiple editor tabs, split editor, diff view, and unsaved-change safeguards','Customize font, tab size, wrapping, minimap, line numbers, suggestions, and editor behavior']} note="Python and C/C++ have syntax highlighting, but external language servers are not configured by default."/>
         <FeatureBlock id="terminal" number="02" eyebrow="INTEGRATED TERMINAL" title="Run the project where you edit it." kind="terminal" reverse description="The terminal is part of the workspace, not a separate window. Start sessions, switch shells, split panes, and keep command output beside your source." points={['PowerShell, Command Prompt, and Git Bash options','Multiple terminal sessions with split, restart, clear, and resize controls','xterm.js terminal with scrollback and theme-aware colors','Ctrl-click detected links to open them in your default browser']}/>
         <FeatureBlock id="source-control" number="03" eyebrow="GIT + GITHUB" title="Review work before it leaves your machine." kind="git" description="Use source control views to inspect file changes and diffs, stage intentionally, commit, and manage repository history from the IDE." points={['Stage and unstage files; review staged and unstaged diffs','Commit, branch, remote, push/pull, clone, and repository initialization actions','Browse commit history and inspect files in commits','Review merge conflicts and edit the resolved file before staging','GitHub sign-in and a separate workspace for repositories, issues, and pull requests']}/>
