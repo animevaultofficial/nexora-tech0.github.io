@@ -1,5 +1,5 @@
 import {
-  siAnthropic, siGithubcopilot, siGooglegemini, siOllama
+  siAnthropic, siGithubcopilot, siGooglegemini, siOllama, siOpenai, siGroq, siX
 } from 'simple-icons';
 
 export const aiProviders = [
@@ -14,7 +14,7 @@ export const aiProviders = [
   {
     id: 'openai',
     name: 'OpenAI',
-    symbol: 'AI',
+    icon: siOpenai,
     color: '#8bd1c1',
     model: 'gpt-5.5',
     setup: 'Add an OpenAI API key and select a model.'
@@ -38,7 +38,7 @@ export const aiProviders = [
   {
     id: 'groq',
     name: 'Groq',
-    symbol: 'G',
+    icon: siGroq,
     color: '#f47d5d',
     model: 'openai/gpt-oss-120b',
     setup: 'Add a Groq API key and select a model.'
@@ -46,7 +46,7 @@ export const aiProviders = [
   {
     id: 'xai',
     name: 'xAI / Grok',
-    symbol: 'x',
+    icon: siX,
     color: '#d6d8de',
     model: 'grok-4.7',
     setup: 'Add an xAI API key and select a model.'
