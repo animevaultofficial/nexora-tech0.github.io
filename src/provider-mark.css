@@ -1,3 +1,36 @@
-.provider-mark { display: inline-grid; flex: 0 0 auto; width: 30px; height: 30px; place-items: center; border: 1px solid color-mix(in srgb, var(--provider-color) 34%, transparent); border-radius: 6px; background: color-mix(in srgb, var(--provider-color) 10%, #15161c); color: var(--provider-color); }
-.provider-mark > svg { display: block; color: currentColor; }
-.provider-mark-fallback { display: grid; width: 100%; height: 100%; place-items: center; border-radius: inherit; color: inherit; font: 700 9px/1 var(--mono); letter-spacing: -.04em; }
+.provider-mark {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--provider-color) 36%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--provider-color) 9%, #15161c);
+  color: var(--provider-color);
+}
+.provider-mark > svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  overflow: visible;
+  color: currentColor;
+}
+.provider-mark > svg path { fill: currentColor; }
+.provider-mark-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border-radius: inherit;
+  color: inherit;
+  font: 700 9px/1 var(--mono);
+  letter-spacing: -.04em;
+}
+.provider-mark-custom { font-size: 12px; }
+.provider-mark-custom .provider-mark-fallback { font-size: 11px; letter-spacing: -.08em; }
+@media (prefers-reduced-motion: no-preference) {
+  .provider-mark { transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
+  .efith-provider-card:hover .provider-mark { transform: translateY(-1px); }
+}
