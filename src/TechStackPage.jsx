@@ -43,8 +43,8 @@ export default function TechStackPage() {
     <main>
       <section className="tech-stack-hero container">
         <div className="eyebrow"><span/> NEXORA CODE / EDITOR LANGUAGE SUPPORT</div>
-        <h1>Language and file support</h1>
-        <p>Browse the file extensions Nexora maps to Monaco language modes. Use the search and filters to find a language, format, or file type and see the level of editor support currently configured.</p>
+        <h1>Know what your files can do.</h1>
+        <p>Search by language or extension to see how Nexora Code currently maps files to Monaco. The page separates syntax support from deeper tooling, so the feature claims stay clear.</p>
         <div className="stack-summary">
           <span><strong>{techStackLanguageCount}</strong><small>mapped language modes</small></span>
           <span><strong>JS + TS</strong><small>built-in editor diagnostics</small></span>
@@ -54,7 +54,7 @@ export default function TechStackPage() {
 
       <section className="stack-catalog container" aria-labelledby="stack-catalog-title">
         <div className="stack-catalog-head">
-          <div><span className="stack-catalog-kicker"><Code2 size={13}/> LANGUAGE AND FILE SUPPORT</span><h2 id="stack-catalog-title">Supported file types</h2><p>These are the extensions explicitly mapped in the current Nexora Code editor.</p></div>
+          <div><span className="stack-catalog-kicker"><Code2 size={13}/> LANGUAGE AND FILE SUPPORT</span><h2 id="stack-catalog-title">Supported file types</h2><p>These are the file extensions currently mapped by the editor—not a claim that every language has a complete compiler, debugger, or language server.</p></div>
           <span className="stack-result-count">{visibleCount} / {techStackLanguageCount} shown</span>
         </div>
         <label className="stack-search"><Search size={16}/><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a language or extension, e.g. .tsx"/>{query && <button type="button" onClick={() => setQuery('')} aria-label="Clear language search">Clear</button>}</label>
@@ -62,9 +62,9 @@ export default function TechStackPage() {
         {visibleGroups.length ? visibleGroups.map(group => <section className="language-group-section" key={group.name} aria-label={group.name}>
           <div className="language-group-heading"><h3>{group.name}</h3><span>{group.entries.length} {group.entries.length === 1 ? 'mode' : 'modes'}</span></div>
           <div className="language-card-grid">{group.entries.map(item => <LanguageCard key={item.name} item={item} group={group.name}/>)}</div>
-        </section>) : <div className="stack-no-results"><Code2 size={21}/><strong>No matching language modes</strong><span>Try a different language name or extension.</span></div>}
+        </section>) : <div className="stack-no-results"><Code2 size={21}/><strong>No matching language modes</strong><span>Try another language name, category, or extension.</span></div>}
         <aside className="stack-support-note">
-          <Code2 size={17}/><div><strong>What “supported” means here</strong><p>Nexora maps these file types to Monaco syntax modes. JavaScript and TypeScript also use Monaco's built-in editor diagnostics. External language servers, full-project type checking, and debugger adapters are not bundled or configured by default.</p></div>
+          <Code2 size={17}/><div><strong>What editor support means</strong><p>Nexora maps these file types to Monaco syntax modes. JavaScript and TypeScript also use Monaco's built-in editor diagnostics. External language servers, full-project type checking, and debugger adapters are not bundled or configured by default.</p></div>
         </aside>
       </section>
 
