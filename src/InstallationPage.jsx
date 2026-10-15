@@ -1,4 +1,4 @@
-import { ArrowDownToLine, ArrowRight, ArrowUpRight, Check, CircleHelp, Settings2, ShieldCheck, Wrench } from 'lucide-react';
+import { ArrowDownToLine, ArrowRight, ArrowUpRight, Check, CircleHelp, Palette, Settings2, ShieldCheck, Wrench } from 'lucide-react';
 import { siDiscord, siGit, siNodedotjs, siSpotify } from 'simple-icons';
 import { siteUrl } from './site-url.js';
 import SimpleIcon from './SimpleIcon.jsx';
@@ -15,8 +15,8 @@ const setupItems = [
     icon: siSpotify,
     tone: 'spotify',
     type: 'Optional integration',
-    summary: 'Show playback controls in the titlebar and use the Spotify sidebar when you want music beside your code.',
-    action: 'Enable or hide in Nexora Code Settings',
+    summary: 'Keep playback, track details, and music controls close by. Use the Spotify sidebar when you want a fuller player beside your code.',
+    action: 'Show or hide in Nexora Code Settings',
   },
   {
     id: 'discord',
@@ -24,8 +24,8 @@ const setupItems = [
     icon: siDiscord,
     tone: 'discord',
     type: 'Optional integration',
-    summary: 'Keep your Discord workspace available inside the IDE. Sign in with your own Discord account.',
-    action: 'Enable or hide in Nexora Code Settings',
+    summary: 'Keep conversations within reach without letting another app take over your workspace. Sign in with your own Discord account.',
+    action: 'Show or hide in Nexora Code Settings',
   },
   {
     id: 'git',
@@ -33,8 +33,8 @@ const setupItems = [
     icon: siGit,
     tone: 'git',
     type: 'Developer tool',
-    summary: 'Needed for local repository operations. Nexora Code can check whether Git is already available on your PC.',
-    action: 'Check in Settings → Developer Tools',
+    summary: 'Use Git for local version control. Check whether it is already installed before adding another copy.',
+    action: 'Settings → Developer Tools',
   },
   {
     id: 'node',
@@ -42,8 +42,60 @@ const setupItems = [
     icon: siNodedotjs,
     tone: 'node',
     type: 'Developer tool',
-    summary: 'Useful for JavaScript projects and npm scripts. Keep your existing installation, or install it if a project needs it.',
-    action: 'Check in Settings → Developer Tools',
+    summary: 'Run JavaScript tooling and npm scripts when a project needs them. Keep your current installation if it already works.',
+    action: 'Settings → Developer Tools',
+  },
+];
+
+const themePreviews = [
+  {
+    id: 'welcome',
+    title: 'Start with a clean setup',
+    description: 'The onboarding screen gives you a clear starting point before you open a project.',
+    image: 'onboarding-welcome.png',
+    alt: 'Nexora Code welcome and onboarding screen',
+    label: 'FIRST LAUNCH',
+  },
+  {
+    id: 'theme',
+    title: 'Choose your look',
+    description: 'Preview the real appearance selection screen and pick the workspace style that feels right.',
+    image: 'onboarding-theme.png',
+    alt: 'Nexora Code onboarding theme selection screen',
+    label: 'THEME SELECTION',
+  },
+  {
+    id: 'appearance',
+    title: 'Fine-tune the details',
+    description: 'Adjust the IDE appearance from Settings after setup; the screenshot shows the actual settings interface.',
+    image: 'settings-appearance.png',
+    alt: 'Nexora Code appearance settings in the running desktop IDE',
+    label: 'APPEARANCE SETTINGS',
+  },
+];
+
+const installSteps = [
+  {
+    number: '01',
+    title: 'Check the official release',
+    description: 'Open GitHub Releases and download a Windows installer only when a public build is available.',
+    image: 'onboarding-welcome.png',
+    alt: 'Nexora Code welcome screen shown during first launch',
+    link: true,
+  },
+  {
+    number: '02',
+    title: 'Make the workspace yours',
+    description: 'Choose a theme during onboarding, then revisit Appearance in Settings whenever you want to change it.',
+    image: 'onboarding-theme.png',
+    alt: 'Nexora Code theme selection during onboarding',
+  },
+  {
+    number: '03',
+    title: 'Check tools before installing',
+    description: 'Review Git and Node.js detection in Developer Tools. Avoid installing another copy if your current tools are already available.',
+    image: 'settings-developer-tools.png',
+    alt: 'Nexora Code Developer Tools settings',
   },
 ];
 
@@ -59,55 +111,91 @@ function SetupItem({ item, index }) {
   </article>;
 }
 
+function ThemePreview({ item }) {
+  return <article className="install-theme-card">
+    <div className="install-theme-image">
+      <img src={siteUrl(`screenshots/${item.image}`)} alt={item.alt} loading="lazy"/>
+      <span>{item.label}</span>
+    </div>
+    <div className="install-theme-copy">
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </div>
+  </article>;
+}
+
+function InstallStep({ step }) {
+  return <article className="install-process-card">
+    <div className="install-process-image">
+      <img src={siteUrl(`screenshots/${step.image}`)} alt={step.alt} loading="lazy"/>
+      <span className="install-process-number">{step.number}</span>
+    </div>
+    <div className="install-process-copy">
+      <h3>{step.title}</h3>
+      <p>{step.description}</p>
+      {step.link
+        ? <a href={RELEASES} target="_blank" rel="noreferrer">Official GitHub Releases <ArrowUpRight size={13}/></a>
+        : <span className="install-step-foot"><Check size={13}/>{step.number === '02' ? 'Change it again any time' : 'Check before adding another copy'}</span>}
+    </div>
+  </article>;
+}
+
 export default function InstallationPage() {
   return <div className="site-shell installation-page">
     <SiteHeader currentPage="installation"/>
     <main>
       <section className="install-hero container">
         <div className="install-hero-copy">
-          <div className="eyebrow"><span/> NEXORA CODE / INSTALLATION</div>
-          <h1>Install the IDE.<br/><span>Choose what comes with it.</span></h1>
-          <p>Start with Nexora Code, then choose the integrations and developer tools you actually need. You can change optional app visibility later in Settings.</p>
+          <div className="eyebrow"><span/> NEXORA CODE / GETTING STARTED</div>
+          <h1>Your workspace.<br/><span>Your setup. Your style.</span></h1>
+          <p>Get familiar with Nexora Code, choose an appearance you like, and add only the tools you actually need. Your editor stays at the center; everything else is there when you want it.</p>
           <div className="install-hero-actions">
-            <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><ArrowDownToLine size={16}/> Check Windows downloads <ArrowUpRight size={14}/></a>
-            <a className="button-secondary" href="#included">What can I configure? <ArrowRight size={14}/></a>
+            <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><ArrowDownToLine size={16}/> Check Windows releases <ArrowUpRight size={14}/></a>
+            <a className="button-secondary" href="#install-process">See the setup process <ArrowRight size={14}/></a>
           </div>
-          <p className="install-availability"><CircleHelp size={14}/> No public installer is currently listed on GitHub Releases. This page will point to the official download when a build is published.</p>
+          <p className="install-availability"><CircleHelp size={14}/> No public installer is currently listed on GitHub Releases. This page links to the official release location and will remain accurate as availability changes.</p>
         </div>
         <aside className="install-hero-note">
           <span className="install-note-icon"><ShieldCheck size={20}/></span>
-          <strong>Nothing extra by default.</strong>
-          <p>Keep optional integrations off if you don't use them. Check for developer tools before installing another copy.</p>
+          <strong>Start simple. Add things later.</strong>
+          <p>You do not need to set up every integration on day one. Check existing developer tools first, then enable the optional apps that fit your workflow.</p>
         </aside>
+      </section>
+
+      <section id="install-process" className="install-steps-section">
+        <div className="container">
+          <div className="install-section-heading">
+            <div><div className="eyebrow"><span/> THE SETUP, STEP BY STEP</div><h2>From first launch to your own workspace.</h2></div>
+            <p>Real Nexora Code screenshots walk you through the key decisions. The public installer is not listed yet, so the first step is to check the official release page for availability.</p>
+          </div>
+          <div className="install-process-grid">{installSteps.map(step => <InstallStep key={step.number} step={step}/>)}</div>
+        </div>
+      </section>
+
+      <section id="themes" className="install-themes-section">
+        <div className="container">
+          <div className="install-section-heading">
+            <div><div className="eyebrow"><span/> APPEARANCE & THEMES</div><h2>Make it feel like your IDE.</h2></div>
+            <p>Pick a look during onboarding, then revisit Appearance in Settings when you want a change. These are screenshots of Nexora Code's real setup and settings screens—not concept mockups.</p>
+          </div>
+          <div className="install-theme-grid">{themePreviews.map(item => <ThemePreview key={item.id} item={item}/>)}</div>
+          <div className="install-theme-note"><Palette size={17}/><p><strong>One workspace, your preferences.</strong> Theme availability depends on the options exposed by the current build. The images show where appearance choices live; they are not a promise of themes that are not present in the app.</p></div>
+        </div>
       </section>
 
       <section id="included" className="install-components-section">
         <div className="container">
           <div className="install-section-heading">
-            <div><div className="eyebrow"><span/> OPTIONAL COMPONENTS</div><h2>Your setup, your call.</h2></div>
-            <p>These options are managed after installation from Nexora Code Settings. Spotify and Discord are integrations; Git and Node.js are separate developer tools.</p>
+            <div><div className="eyebrow"><span/> OPTIONAL COMPONENTS</div><h2>Add only what earns its place.</h2></div>
+            <p>Spotify and Discord are optional integrations. Git and Node.js are developer tools. Configure integrations inside Nexora Code, and check for existing tools before installing anything new.</p>
           </div>
           <div className="install-component-list">{setupItems.map((item, index) => <SetupItem key={item.id} item={item} index={index}/>)}</div>
         </div>
       </section>
 
-      <section className="install-steps-section">
-        <div className="container">
-          <div className="install-section-heading">
-            <div><div className="eyebrow"><span/> GETTING STARTED</div><h2>From download to workspace.</h2></div>
-            <p>Use the official release page for the Windows installer. Once Nexora Code is installed, configure only the extras you want.</p>
-          </div>
-          <div className="install-steps-grid">
-            <article><span className="install-step-number">01</span><div className="install-step-icon"><ArrowDownToLine size={19}/></div><h3>Download Nexora Code</h3><p>Open the official GitHub Releases page and download a published Windows installer when one is available.</p><a href={RELEASES} target="_blank" rel="noreferrer">Official releases <ArrowUpRight size={13}/></a></article>
-            <article><span className="install-step-number">02</span><div className="install-step-icon"><Settings2 size={19}/></div><h3>Open Settings</h3><p>Choose which built-in apps you want visible, including Spotify controls and the Discord workspace.</p><span className="install-step-foot">Settings → built-in app visibility</span></article>
-            <article><span className="install-step-number">03</span><div className="install-step-icon"><Wrench size={19}/></div><h3>Check developer tools</h3><p>Scan for Git and Node.js first. Use the available install or PATH actions only when you need them.</p><span className="install-step-foot">Settings → Developer Tools</span></article>
-          </div>
-        </div>
-      </section>
-
       <section className="install-bottom-cta">
         <div className="container install-bottom-inner">
-          <div><div className="eyebrow"><span/> READY WHEN YOU ARE</div><h2>Get the official build.</h2><p>We don't host unofficial installers. Check the release page for the latest published package and notes.</p></div>
+          <div><div className="eyebrow"><span/> OFFICIAL DOWNLOADS ONLY</div><h2>Ready when the build is published.</h2><p>We link directly to the official Nexora Code release page instead of hosting an unofficial installer. Check there for the package and release notes.</p></div>
           <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer">Open GitHub Releases <ArrowUpRight size={14}/></a>
         </div>
       </section>
