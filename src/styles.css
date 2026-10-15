@@ -230,7 +230,7 @@ h1 span, h2 span { color: var(--pink-soft); }
 .release-card > a { display: inline-flex; align-items: center; gap: 6px; color: #f08eac; font-size: 10px; font-weight: 650; }
 
 .site-footer { border-top: 1px solid #ffffff0d; background: #090a0d; }
-.footer-main { display: grid; grid-template-columns: minmax(0, 1fr) 140px 190px; gap: 42px; padding-top: 32px; padding-bottom: 31px; }
+.footer-main { display: grid; grid-template-columns: minmax(0, 1.25fr) repeat(3, minmax(115px, .7fr)); gap: 32px; padding-top: 32px; padding-bottom: 31px; }
 .brand-footer { font-size: 11px; }
 .brand-footer img { width: 30px; height: 30px; }
 .footer-brand-column > p { max-width: 230px; margin: 12px 0 0; color: #9fa2ac; font-size: 10px; line-height: 1.7; }
