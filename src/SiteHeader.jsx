@@ -26,6 +26,7 @@ export default function SiteHeader({ currentPage }) {
           <a href={siteUrl('tech-stack/')} aria-current={currentPage === 'tech-stack' ? 'page' : undefined} onClick={closeMenu}>Tech stack</a>
           <a href={siteUrl('installation/')} aria-current={currentPage === 'installation' ? 'page' : undefined} onClick={closeMenu}>Install</a>
           <a href={siteUrl('efith/')} aria-current={currentPage === 'efith' ? 'page' : undefined} onClick={closeMenu}>EFITH</a>
+          <a href={siteUrl('about/')} aria-current={currentPage === 'about' ? 'page' : undefined} onClick={closeMenu}>About</a>
           <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15}/> GitHub <ArrowUpRight size={13}/></a>
           <a className="nav-download" href={RELEASES} target="_blank" rel="noreferrer">View releases <ArrowUpRight size={14}/></a>
         </div>
