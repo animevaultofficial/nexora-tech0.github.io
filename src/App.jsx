@@ -8,6 +8,7 @@ import FeaturesPage from './FeaturesPage.jsx';
 import TechStackPage from './TechStackPage.jsx';
 import EfithPage from './EfithPage.jsx';
 import AboutPage from './AboutPage.jsx';
+import DocsPage from './DocsPage.jsx';
 import LegalPage from './LegalPage.jsx';
 import SiteFooter from './SiteFooter.jsx';
 import {
@@ -115,6 +116,7 @@ function App() {
   if (route === '/efith') return <EfithPage />;
   if (route === '/installation') return <InstallationPage />;
   if (route === '/about') return <AboutPage />;
+  if (route === '/docs') return <DocsPage />;
   if (route === '/terms') return <LegalPage page="terms" />;
   if (route === '/privacy-policy') return <LegalPage page="privacy" />;
 
@@ -143,6 +145,7 @@ function App() {
             <a href={siteUrl('tech-stack/')}>Tech stack</a>
             <a href={siteUrl('installation/')} onClick={closeMenu}>Installation</a>
             <a href={siteUrl('efith/')} onClick={closeMenu}>EFITH</a>
+            <a href={siteUrl('docs/')} onClick={closeMenu}>Docs</a>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href={REPOSITORY} target="_blank" rel="noreferrer"><Github size={15} /> GitHub <ArrowUpRight size={13} /></a>
             <a className="nav-download" href={RELEASES} target="_blank" rel="noreferrer">View releases <ArrowUpRight size={14} /></a>
