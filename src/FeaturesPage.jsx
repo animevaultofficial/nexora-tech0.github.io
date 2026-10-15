@@ -4,6 +4,7 @@ import './features-page.css';
 import { siDiscord, siSpotify } from 'simple-icons';
 import SimpleIcon from './SimpleIcon.jsx';
 import SiteHeader from './SiteHeader.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import ProviderMark from './ProviderMark.jsx';
 import ScreenshotGallery from './ScreenshotGallery.jsx';
 import { aiProviders } from './provider-data.js';
@@ -139,16 +140,7 @@ function FeatureBlock({ id, number, eyebrow, title, description, points, kind, r
   </article>;
 }
 
-function FeaturesFooter() {
-  return <footer className="site-footer">
-    <div className="container footer-main">
-      <div className="footer-brand-column"><FeatureBrand/><p>A focused Windows desktop workspace, developed under Nexora.</p></div>
-      <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('efith/')}>EFITH</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href={siteUrl('installation/')}>Installation</a></div>
-      <div className="footer-links-group"><strong>PROJECT</strong><a href={RELEASES} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12}/></a><a href={ORGANIZATION} target="_blank" rel="noreferrer">Nexora on GitHub <ArrowUpRight size={12}/></a></div>
-    </div>
-    <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Authentic IDE captures; integrations may require configuration.</span></div>
-  </footer>;
-}
+function FeaturesFooter() { return <SiteFooter />; }
 
 export default function FeaturesPage() {
   return <div className="site-shell feature-guide-shell">
