@@ -3,6 +3,7 @@ import { siDiscord, siGit, siNodedotjs, siSpotify } from 'simple-icons';
 import { siteUrl } from './site-url.js';
 import SimpleIcon from './SimpleIcon.jsx';
 import SiteHeader from './SiteHeader.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import './installation-page.css';
 
 const REPOSITORY = 'https://github.com/animevaultofficial/Nexora-Code';
@@ -200,13 +201,6 @@ export default function InstallationPage() {
         </div>
       </section>
     </main>
-    <footer className="site-footer">
-      <div className="container footer-main">
-        <div className="footer-brand-column"><a className="brand" href={siteUrl('')}><img src={siteUrl('nexora-mark.svg')} width="34" height="34" alt=""/><span>NEXORA <span className="brand-muted">CODE</span></span></a><p>A Windows IDE by Nexora.</p></div>
-        <div className="footer-links-group"><strong>PRODUCT</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('tech-stack/')}>Tech stack</a></div>
-        <div className="footer-links-group"><strong>GET STARTED</strong><a href={siteUrl('installation/')}>Installation</a><a href={RELEASES} target="_blank" rel="noreferrer">GitHub Releases <ArrowUpRight size={12}/></a></div>
-      </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><span>Install only what you need.</span></div>
-    </footer>
+    <SiteFooter />
   </div>;
 }
