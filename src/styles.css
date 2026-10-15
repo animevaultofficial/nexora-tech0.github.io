@@ -37,8 +37,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--pink-soft); out
 .announcement-mark { display: inline-flex; color: var(--pink-soft); }
 .announcement a { display: inline-flex; align-items: center; gap: 5px; margin-left: 5px; color: #ff8daf; font-weight: 650; }
 
-.site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid #ffffff0c; background: #090a0def; backdrop-filter: blur(16px); }
-.nav { display: flex; height: 72px; align-items: center; justify-content: space-between; }
+.site-header { position: sticky; z-index: 20; top: 12px; width: min(1240px, calc(100% - 40px)); margin: 12px auto 0; border: 1px solid #ffffff17; border-radius: 20px; background: #101116eF; box-shadow: 0 12px 36px #0005, inset 0 1px 0 #ffffff08; backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); transition: border-color .22s ease, background-color .22s ease, box-shadow .22s ease; }
+.site-header:hover { border-color: #ffffff25; box-shadow: 0 14px 42px #0006, inset 0 1px 0 #ffffff0a; }
+.nav { display: flex; width: 100%; height: 72px; align-items: center; justify-content: space-between; padding: 0 22px; }
 .brand { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 10px; color: var(--text); font-size: 12px; font-weight: 780; letter-spacing: .12em; white-space: nowrap; }
 .brand img { display: block; width: 34px; height: 34px; }
 .brand-muted { color: #a1a5b0; font-weight: 500; }
@@ -46,9 +47,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--pink-soft); out
 .nav-links > a { display: inline-flex; align-items: center; gap: 6px; color: #b6bac4; font-size: 12px; transition: color .18s ease; }
 .nav-links > a:hover, .nav-links > a[aria-current="page"], .footer-links-group a:hover { color: white; }
 .nav-links > a:nth-last-child(2) { color: #e1e2e7; }
-.nav-links > .nav-download { padding: 10px 13px; border: 1px solid #4a3b48; border-radius: 6px; background: #17141a; color: #f8eaf0; font-weight: 650; }
+.nav-links > .nav-download { padding: 10px 14px; border: 1px solid #4a3b48; border-radius: 999px; background: #17141a; color: #f8eaf0; font-weight: 650; }
 .nav-links > .nav-download:hover { border-color: #9d506c; background: #21171e; }
-.mobile-menu { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 6px; background: var(--surface-raised); }
+.mobile-menu { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-raised); }
 
 .hero { display: grid; min-height: 498px; grid-template-columns: minmax(0, 1.55fr) minmax(210px, .45fr); align-items: center; gap: 76px; padding-top: 58px; padding-bottom: 57px; }
 .hero-copy { max-width: 790px; }
@@ -249,11 +250,12 @@ h1 span, h2 span { color: var(--pink-soft); }
 
 @media (max-width: 720px) {
   .container { width: min(100% - 40px, 600px); }
+  .site-header { top: 8px; width: calc(100% - 24px); margin-top: 8px; border-radius: 17px; }
+  .nav { height: 62px; padding: 0 14px; }
   .announcement { justify-content: flex-start; padding: 7px 20px; font-size: 10px; }
   .announcement a { margin-left: auto; white-space: nowrap; }
-  .nav { height: 64px; }
   .mobile-menu { display: inline-flex; order: 2; }
-  .nav-links { position: absolute; top: 63px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 16px; border-bottom: 1px solid var(--line); background: #0d0e12; box-shadow: 0 16px 28px #0008; }
+  .nav-links { position: absolute; top: calc(100% + 8px); right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 16px; border: 1px solid #ffffff17; border-radius: 16px; background: #101116f7; box-shadow: 0 16px 28px #0008; backdrop-filter: blur(20px); }
   .nav-links.nav-open { display: flex; }
   .nav-links > a { min-height: 43px; padding: 0 3px; }
   .nav-links > .nav-download { justify-content: center; margin-top: 7px; }
@@ -308,6 +310,8 @@ h1 span, h2 span { color: var(--pink-soft); }
 
 @media (max-width: 420px) {
   .container { width: calc(100% - 36px); }
+  .site-header { width: calc(100% - 18px); border-radius: 15px; }
+  .nav { padding: 0 11px; }
   .announcement { font-size: 9px; }
   .announcement a { gap: 3px; font-size: 9px; }
   .brand { gap: 8px; font-size: 10px; }
