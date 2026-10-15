@@ -148,20 +148,20 @@ function App() {
         <section className="hero container">
           <div className="hero-copy">
             <div className="eyebrow"><span /> NEXORA CODE / WINDOWS</div>
-            <h1>A Windows IDE for the way you work.</h1>
-            <p className="hero-description">Nexora Code combines a code editor, terminal, Git tools, browser, Spotify, Discord, and EFITH in one Windows app. AI provider access depends on your configuration.</p>
+            <h1>Your code. Your tools. One workspace.</h1>
+            <p className="hero-description">A Windows desktop workspace built around your code—with an editor, terminal, Git tools, browser, optional Spotify and Discord integrations, and EFITH for AI-assisted coding. Provider access depends on your own configuration.</p>
             <div className="hero-actions">
               <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer">
                 <ArrowDownToLine size={16} /> Check Windows releases <ArrowUpRight size={14} />
               </a>
-              <a className="button-secondary" href="#product">Explore the IDE <ArrowRight size={15} /></a>
+              <a className="button-secondary" href="#product">Take a closer look <ArrowRight size={15} /></a>
             </div>
             <p className="availability"><span /> No public installer is currently listed. Check GitHub Releases for availability.</p>
           </div>
           <div className="hero-side">
             <div className="hero-index"><span>01</span> / A workspace in context</div>
             <div className="hero-rule" />
-            <p>Move between the code you are writing and the tools that help you ship it.</p>
+            <p>Keep your focus on the work. Bring the tools you need into reach when you need them.</p>
             <a href="#workflow">See how it fits together <ArrowRight size={14} /></a>
           </div>
         </section>
@@ -175,9 +175,9 @@ function App() {
             <div className="section-heading">
               <div>
                 <div className="eyebrow"><span /> MADE FOR THE DAILY LOOP</div>
-                <h2>The tools you use, in one place.</h2>
+                <h2>Less window juggling. More room to build.</h2>
               </div>
-              <p>A Windows desktop IDE with an editor, terminal, source control, and optional integrated tools. <a className="feature-guide-link" href={siteUrl('features/')}>Explore the complete feature guide <ArrowRight size={13}/></a></p>
+              <p>A practical workspace for the everyday loop: open a project, write code, run it, review changes, and keep moving. <a className="feature-guide-link" href={siteUrl('features/')}>Explore the complete feature guide <ArrowRight size={13}/></a></p>
             </div>
             <div className="feature-grid">
               {featureCards.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
@@ -189,8 +189,8 @@ function App() {
           <div className="container workflow-layout">
             <div className="workflow-heading">
               <div className="eyebrow"><span /> DEVELOPMENT WORKFLOW</div>
-              <h2>From project files to commit.</h2>
-              <p>Edit files, run commands, and review changes from the same workspace.</p>
+              <h2>From first file to finished change.</h2>
+              <p>Keep editing, testing, and reviewing close together—without losing sight of your project.</p>
             </div>
             <div className="workflow-steps">
               <article className="workflow-step">
@@ -215,8 +215,8 @@ function App() {
         <section id="setup" className="setup-section">
           <div className="container">
             <div className="section-heading">
-              <div><div className="eyebrow"><span /> OPTIONAL COMPONENTS</div><h2>Only install what you need.</h2></div>
-              <p>Choose your setup after installing Nexora Code. Built-in apps can be shown or hidden in Settings; developer tools can be checked before you add another installation.</p>
+              <div><div className="eyebrow"><span /> OPTIONAL COMPONENTS</div><h2>Make room for your workflow.</h2></div>
+              <p>Keep integrations optional, check for existing developer tools first, and shape the workspace around the way you actually work.</p>
             </div>
             <div className="setup-card-grid">
               <article className="setup-card"><div className="setup-card-icon spotify"><SimpleIcon icon={siSpotify} title="Spotify" size={22}/></div><div className="setup-card-top"><span>INTEGRATION</span><span className="setup-card-state">Optional</span></div><h3>Spotify controls</h3><p>Titlebar playback controls and a full Spotify sidebar when you want music beside your code.</p><small>Configure in Settings</small></article>
@@ -248,13 +248,13 @@ function App() {
             <div className="download-copy">
               <div className="eyebrow"><span /> NEXORA CODE FOR WINDOWS</div>
               <h2>Download status</h2>
-              <p>Check GitHub Releases for published builds and release notes.</p>
+              <p>The official release page is the source for published installers and release notes.</p>
               <a className="button-primary" href={RELEASES} target="_blank" rel="noreferrer"><Monitor size={16} /> View GitHub Releases <ArrowUpRight size={14} /></a>
               <p className="availability availability-download"><span /> There is no public installer listed on the release page right now.</p>
             </div>
             <div className="release-card">
               <div className="release-card-top"><span className="release-icon"><ArrowDownToLine size={17} /></span><span className="release-badge">OFFICIAL RELEASES</span></div>
-              <h3>Get the latest release</h3>
+              <h3>Find the official build</h3>
               <p>No installer is currently listed on the release page.</p>
               <a href={RELEASES} target="_blank" rel="noreferrer">Open release page <ArrowUpRight size={14} /></a>
             </div>
