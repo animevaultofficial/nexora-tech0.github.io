@@ -12,7 +12,11 @@ export default defineConfig({
         features: fileURLToPath(new URL('./features/index.html', import.meta.url)),
         techStack: fileURLToPath(new URL('./tech-stack/index.html', import.meta.url)),
         efith: fileURLToPath(new URL('./efith/index.html', import.meta.url)),
-        installation: fileURLToPath(new URL('./installation/index.html', import.meta.url))
+        installation: fileURLToPath(new URL('./installation/index.html', import.meta.url)),
+        docs: fileURLToPath(new URL('./docs/index.html', import.meta.url)),
+        about: fileURLToPath(new URL('./about/index.html', import.meta.url)),
+        terms: fileURLToPath(new URL('./terms/index.html', import.meta.url)),
+        privacyPolicy: fileURLToPath(new URL('./privacy-policy/index.html', import.meta.url))
       }
     }
   }
