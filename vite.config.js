@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS === 'true' ? '/nexora-tech0.github.io/' : '/',
+  base: '/',
   build: {
     rollupOptions: {
       input: {
