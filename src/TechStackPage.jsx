@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { siteUrl } from './site-url.js';
 import { ArrowRight, ArrowUpRight, Check, Code2, Search } from 'lucide-react';
 import SiteHeader from './SiteHeader.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import SimpleIcon from './SimpleIcon.jsx';
 import { techStackGroups, techStackLanguageCount } from './tech-stack-data.js';
 import './tech-stack-page.css';
@@ -73,6 +74,6 @@ export default function TechStackPage() {
         <div className="stack-next-actions"><a className="button-primary" href={siteUrl('efith/')}>Explore EFITH <ArrowRight size={14}/></a><a className="button-secondary" href={siteUrl('features/')}>See all features <ArrowUpRight size={14}/></a></div>
       </section>
     </main>
-    <footer className="site-footer"><div className="container footer-bottom"><span>© {new Date().getFullYear()} Nexora Code</span><a href={REPOSITORY} target="_blank" rel="noreferrer">View the source on GitHub <ArrowUpRight size={12}/></a></div></footer>
+    <SiteFooter />
   </div>;
 }
