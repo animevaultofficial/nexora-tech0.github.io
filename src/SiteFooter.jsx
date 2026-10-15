@@ -12,7 +12,7 @@ export default function SiteFooter() {
         <p>Thoughtful tools for people who build things. Nexora Code brings your editor, terminal, source control, and selected integrations into one focused Windows workspace.</p>
         <p className="footer-note">Nexora Code is a product under Nexora CO, founded and led by CEO Ishah Mushak. Designed around clarity, considered details, and a restrained charcoal, off-white, and Nexora-pink palette.</p>
       </div>
-      <div className="footer-links-group"><strong>EXPLORE</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href={siteUrl('installation/')}>Installation guide</a><a href={siteUrl('efith/')}>EFITH</a></div>
+      <div className="footer-links-group"><strong>EXPLORE</strong><a href={siteUrl('')}>Home</a><a href={siteUrl('features/')}>Features</a><a href={siteUrl('tech-stack/')}>Tech stack</a><a href={siteUrl('installation/')}>Installation guide</a><a href={siteUrl('docs/')}>Documentation</a><a href={siteUrl('efith/')}>EFITH</a></div>
       <div className="footer-links-group"><strong>NEXORA</strong><a href={siteUrl('about/')}>About Nexora</a><a href={ORGANIZATION} target="_blank" rel="noreferrer">GitHub organization <ArrowUpRight size={12}/></a><a href={REPOSITORY} target="_blank" rel="noreferrer">Source repository <ArrowUpRight size={12}/></a><a href={REPOSITORY + '/releases'} target="_blank" rel="noreferrer">Releases <ArrowUpRight size={12}/></a></div>
       <div className="footer-links-group"><strong>POLICIES</strong><a href={siteUrl('terms/')}>Terms &amp; Conditions</a><a href={siteUrl('privacy-policy/')}>Privacy Policy</a><a href={siteUrl('about/#contact')}>Contact information</a></div>
     </div>
